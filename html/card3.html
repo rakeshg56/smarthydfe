@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Card Layout with CSS Grid</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color:rgb(255, 255, 255);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
+  grid-gap: 40px;
+  padding: 60px 0;
+}
+
+.text--medium {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.cards {
+  grid-column: 2 / span 12;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(auto, 60px));
+  grid-gap: 40px;
+}
+
+.card {
+  grid-column-end: span 4;
+  display: flex;
+  flex-direction: column;
+  background-color: #39393b;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+}
+
+.card__image-container {
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__image-container img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card__content {
+  padding: 20px;
+}
+
+.card__title {
+  margin-bottom: 20px;
+}
+
+.card__info {
+  display: flex;
+  align-self: end;
+  align-items: center;
+}
+.card__price.text--medium {
+    text-decoration: none;
+  }
+.card__price {
+  margin-left: auto;
+  padding: 5px 20px;
+  background-color: #303032;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .card {
+    grid-column-end: span 6;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  main {
+    grid-gap: 20px;
+  }
+  .card {
+    grid-column-end: span 12;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  main {
+    grid-template-columns: 10px repeat(6, 1fr) 10px;
+    grid-gap: 10px;
+  }
+  .cards {
+    grid-column: 2 / span 6;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+  }
+  .card {
+    grid-column-end: span 6;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="cards">
+        <div class="card">
+          <div class="card__image-container">
+            <img
+              src="../images/vivantahotelhyd.jpg"
+            />
+          </div>
+          <div class="card__content">
+            <p class="card__title text--medium">
+             <strong> Vivanta By Taj</strong><br>
+              A unique mix of contemporary style and traditional values, Vivanta Hyderabad Begumpet .<br>
+              <strong>Phone: +91 40-67252626<br></strong>
+              <strong> vivanta.begumpet@tajhotels.com </strong>
+            </p>
+            <div class="card__info">
+              
+              <a href="https://www.makemytrip.com/hotels/vivanta_hyderabad_begumpet-details-hyderabad.html" class="card__price text--medium" style="text-decoration: none;">→</a>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image-container">
+            <img
+              src="../images/tajdeccanhotelhyd.jpg"
+            />
+          </div>
+          <div class="card__content">
+            <p class="card__title text--medium">
+              <strong>Taj Deccan</strong> <br>
+                Located in the posh neighbourhood of Banjara Hills, Taj Deccan Hyderabad 
+                <br>
+                <strong>Phone: +91 40-67252626<br></strong>
+                <strong> deccan@hotels.com </strong>
+            </p>
+            <div class="card__info">
+              <a href="https://www.makemytrip.com/hotels/taj_deccan_hyderabad-details-hyderabad.html" class="card__price text--medium" style="text-decoration: none;">→</a>            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image-container">
+            <img
+              src="../images/mercurehotelhyd.jpg"
+            />
+          </div>
+          <div class="card__content">
+            <p class="card__title text--medium">
+              <strong>Mercure Hotel</strong> <br>
+              Well-appointed rooms, a great dining spot, a well-equipped fitness centre and bespoke experiences <br>
+        <strong> Phone: +91 40-67252626<br></strong>
+        <strong> mercury@hotels.com </strong>
+            </p>
+            <div class="card__info">
+              <a href="https://www.makemytrip.com/hotels/mercure_hyderabad_kcp_an_accorhotels_brand-details-hyderabad.html" class="card__price text--medium" style="text-decoration: none;">→</a>            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image-container">
+            <img
+              src="../images/lemontreehotelhyd.jpg"
+            />
+          </div>
+          <div class="card__content">
+            <p class="card__title text--medium">
+              <strong>Lemon Tree</strong> <br>
+              Situated in the corporate hub of Hyderbad, Lemon Tree Premier City Enjoy invites you to experience a lavish stay with modern amenities<br>
+        <strong> Phone: +91 40-67252626<br></strong>
+        <strong> lemontree@hotels.com </strong>
+            </p>
+            <div class="card__info">
+              <a href="https://www.makemytrip.com/hotels/lemon_tree_premier_hitec_city_hyderabad-details-hyderabad.html" class="card__price text--medium" style="text-decoration: none;">→</a>            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image-container">
+            <img
+              src="../images/deccanseraihotelhyd.jpg"
+            />
+          </div>
+          <div class="card__content">
+            <p class="card__title text--medium">
+              <strong>Deccan Serai Hotel</strong> <br>
+              Experience unparalleled luxury at this premium property offering stylish rooms, an incredible restaurant.<br>
+        <strong>Phone: +91 40-67252626<br></strong>
+        <strong>deccanserai@hotels.com </strong>
+            </p>
+            <div class="card__info">
+              <a href="https://www.makemytrip.com/hotels/hotel_deccan_serai-details-hyderabad.html" class="card__price text--medium" style="text-decoration: none;">→</a>            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image-container">
+            <img
+              src="../images/mariotthotelhyd.jpg"
+            />
+          </div>
+          <div class="card__content">
+            <p class="card__title text--medium">
+              <strong>Mariott Hotel</strong> <br>
+              This elegant hotel offers a delightful stay backed by unmatched hospitality, well-appointed rooms.<br>
+              <strong>Phone: +91 40-67252626<br></strong>
+              <strong>mariotthotel@hotels.com </strong>
+            </p>
+            <div class="card__info">
+              <a href="https://www.makemytrip.com/hotels/marigold_by_green_park-details-hyderabad.html" class="card__price text--medium" style="text-decoration: none;">→</a>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </section>
+    </main>
+    <script>
+      !(function() {
+        var analytics = (window.analytics = window.analytics || []);
+        if (!analytics.initialize)
+          if (analytics.invoked)
+            window.console &&
+              console.error &&
+              console.error("Segment snippet included twice.");
+          else {
+            analytics.invoked = !0;
+            analytics.methods = [
+              "trackSubmit",
+              "trackClick",
+              "trackLink",
+              "trackForm",
+              "pageview",
+              "identify",
+              "reset",
+              "group",
+              "track",
+              "ready",
+              "alias",
+              "debug",
+              "page",
+              "once",
+              "off",
+              "on"
+            ];
+            analytics.factory = function(t) {
+              return function() {
+                var e = Array.prototype.slice.call(arguments);
+                e.unshift(t);
+                analytics.push(e);
+                return analytics;
+              };
+            };
+            for (var t = 0; t < analytics.methods.length; t++) {
+              var e = analytics.methods[t];
+              analytics[e] = analytics.factory(e);
+            }
+            analytics.load = function(t, e) {
+              var n = document.createElement("script");
+              n.type = "text/javascript";
+              n.async = !0;
+              n.src =
+                "https://cdn.segment.com/analytics.js/v1/" +
+                t +
+                "/analytics.min.js";
+              var a = document.getElementsByTagName("script")[0];
+              a.parentNode.insertBefore(n, a);
+              analytics._loadOptions = e;
+            };
+            analytics.SNIPPET_VERSION = "4.1.0";
+            analytics.load("FQ5NJmRc6LrFKVAC6ofHlSU7WIwGAdj5");
+            analytics.page();
+          }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  * {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+
+  h1 {
+	font-size: 5.25vmin;
+	text-align: center;
+	color: white;
+}
+p {
+	font-size: max(10pt, 2.5vmin);
+	line-height: 1.4;
+	color: #0e390e;
+	margin-bottom: 1.5rem;
+}
+
+.card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-left: 20px;  
+    }
+
+.wrap {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	width: 85vmin;
+	height: 25em;
+	margin: 2rem auto;
+	border: 8px solid;
+	background-color: #f5f5f5;
+	transition: .3s ease-in-out;
+	position: relative;
+	overflow: hidden;
+  width: calc(30% - 2px);
+  margin-right: 150px;
+  margin-left: 100px; /* Adjust the width as needed */
+  margin-bottom: 20px;
+}
+.overlay {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	padding: 1rem .75rem;
+	background: #9ff4ff;
+	transition: .4s ease-in-out;
+	z-index: 1;
+}
+.overlay-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 15vmin;
+	height: 100%;
+	padding: .5rem 0 0 .5rem;
+	border: 3px solid;
+	border-image: 
+    	linear-gradient(
+      	to bottom, 
+      	#AEA724 5%,
+      	forestgreen 35% 65%,
+      	#AEA724 95%
+    	) 0 0 0 100%;
+	transition: .3s ease-in-out .2s;
+	z-index: 1;
+    height: 90%;
+
+}
+.image-content1 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 60vmin;
+	height: 100%;
+	background-image: url("../images/charminarhyd.jpg");
+	background-size: cover;
+	transition: .3s ease-in-out;
+	/* border: 1px solid green; */
+}
+.image-content2 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 60vmin;
+	height: 100%;
+	background-image: url("../images/jagannathtemplehyd.jpg");
+	background-size: cover;
+	transition: .3s ease-in-out;
+	/* border: 1px solid green; */
+}
+.image-content3 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 60vmin;
+	height: 100%;
+	background-image: url("../images/museumhyd.jpg");
+	background-size: cover;
+	transition: .3s ease-in-out;
+	/* border: 1px solid green; */
+}
+.image-content4 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 60vmin;
+	height: 100%;
+	background-image: url("../images/buddha.jpg");
+	background-size: cover;
+	transition: .3s ease-in-out;
+	/* border: 1px solid green; */
+}
+.inset {
+	max-width: 50%;
+	margin: 0.25em 1em 1em 0;
+	border-radius: 0.25em;
+	float: left;
+}
+
+.dots {
+	position: absolute;
+	bottom: 1rem;
+	right: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 55px;
+	height: 4vmin;
+	transition: .3s ease-in-out .3s;
+}
+.dot {
+	width: 14px;
+	height: 14px;
+	background: yellow;
+	border: 1px solid indigo;
+	border-radius: 50%;
+	transition: .3s ease-in-out .3s;
+}
+
+.text {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 60vmin;
+	height: 100%;
+	padding: 3vmin 4vmin;
+	background: #fff;
+	box-shadow: inset 1px 1px 15px 0 rgba(0 0 0 / .4);
+	overflow-y: scroll;
+}
+
+.wrap:hover .overlay
+ {
+	transform: translateX(-60vmin);
+}
+.wrap:hover .image-content1 {
+	width: 30vmin;
+}
+.wrap:hover .image-content2 {
+	width: 30vmin;
+}
+.wrap:hover .image-content3 {
+	width: 30vmin;
+}
+.wrap:hover .image-content4 {
+	width: 30vmin;
+}
+.wrap:hover .overlay-content {
+	border: none;
+	transition-delay: .2s;
+	transform: translateX(60vmin);
+}
+.wrap:hover .dots {
+	transform: translateX(1rem);
+}
+.wrap:hover .dots .dot {
+	background: white;
+}
+
+
+/* Animations and timing delays */
+.animate {
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
+  animation-fill-mode: backwards;
+}
+/* Pop In */
+.pop { animation-name: pop; }
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+/* Slide In */
+.slide { animation-name: slide; }
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translate(4em, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+/* Slide Left */
+.slide-left { animation-name: slide-left; }
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    transform: translate(-40px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+.slide-up {animation-name: slide-up;}
+@keyframes slide-up {
+	0% {
+		opacity: 0;
+		transform: translateY(3em);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+.delay-2 {
+  animation-delay: 0.6s;
+}
+.delay-3 {
+  animation-delay: 0.9s;
+}
+.delay-4 {
+  animation-delay: 1.2s;
+}
+.delay-5 {
+  animation-delay: 1.5s;
+}
+.delay-6 {
+  animation-delay: 1.8s;
+}
+.delay-7 {
+  animation-delay: 2.1s;
+}
+.delay-8 {
+  animation-delay: 2.4s;
+}
+
+  .navbar {
+    height: 100vh;
+    width: 300px;
+    position: fixed;
+    left: -300px;
+    top: 0;
+    background-color: #222;
+    color: #fff;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    font-size: 16px;
+    z-index: 2;
+  }
+
+  .navbar img.top-image {
+    display: block;
+    width: 100%;
+    height: 25%;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s, background-color 0.3s;
+  }
+
+  .navbar a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+
+  .navbar a:hover {
+    color: #ffcc00;
+    background-color: #444;
+  }
+
+  .navbar a:hover::before {
+    background-color: #ffcc00;
+  }
+
+  .separator {
+    margin: 10px 0;
+    border-top: 1px solid #555;
+  }
+  .service-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+
+  .open-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 3;
+  }
+
+  .open-btn-icon {
+    font-size: 24px;
+  }
+
+  .open-btn.active {
+    display: none;
+  }
+
+  .open-btn:hover {
+    background-color: #444;
+  }
+
+  .open-btn:focus {
+    outline: none;
+  }
+  
+  .map-button {
+        display: block;
+        margin: 0 auto;
+        padding: 10px 20px;
+        background-color: #007bff; /* Change to your desired color */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    body, h1, h2, h3, h4, h5, h6 {
+      font-family: "Raleway", sans-serif;
+    }
+    .w3-card {
+    transition: transform 0.2s;
+  }
+
+  .w3-card:hover {
+    transform: scale(1.01);
+  }
+  body, html {height: 70%}
+.bgimg {
+  background-image: url('../images/hyberdad.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+.card-zoom:hover {
+  transform: scale(1.02); /* Increase the size when hovering */
+  transition: transform 0.8s ease; /* Add a smooth transition */
+}
+@keyframes zoom-out {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1); /* Adjust the scale factor as needed */
+  }
+}
+
+.w3-animate-zoom {
+  animation: zoom-out 1s ease;
+}
+
+
+
+</style>
+</head>
+<body>
+  <button class="open-btn" onclick="toggleNavbar()">
+    <span class="open-btn-icon">☰</span>
+  </button>
+  <div class="navbar" id="navbar">
+    <a href="#" onclick="closeNavbar();"><span class="service-icon">◁</span> Back</a>
+    <img src="../images/hyderabad.jpg" alt="Navbar Image" class="top-image">
+    <a href="navbar.html"><span class="service-icon">🏠</span> Home</a>
+    <div class="separator"></div>
+    <a href="abouthyd.html"><span class="service-icon">ℹ️</span> About the City</a>
+    <div class="separator"></div>
+    <a href="touristattractionshyd.html"><span class="service-icon">🏞️</span> Tourist Attractions</a>
+    <div class="separator"></div>
+    <a href="healthcareserviceshyd.html"><span class="service-icon">🏥</span> HealthCare Services</a>
+    <div class="separator"></div>
+    <a href="hotelshyd.html"><span class="service-icon">🏨</span> Hotels</a>
+    <div class="separator"></div>
+    <a href="bookings.html"><span class="service-icon">🔑</span> Booking</a>
+    <div class="separator"></div>
+    <a href="transportserviceshyd.html"><span class="service-icon">🚆🚌</span> Transportation Services</a>
+    <div class="separator"></div>
+    <a href="collegeshyd.html"><span class="service-icon">🏛️🏫</span> Educational Institutions</a>
+    <div class="separator"></div>
+    <a href="jobshyd.html"><span class="service-icon">💼</span>Companies/Job Findings</a>
+    <div class="separator"></div>
+    <a href="shoppingmallshyd.html"><span class="service-icon">🛍️</span> Shopping Malls</a>
+    <div class="separator"></div>
+    <a href="restaurents.html"><span class="service-icon">🏨</span> Restaurents</a>
+    <div class="separator"></div>
+    <a href="conatcthyd.html"><span class="service-icon">📞</span> Contact</a>
+  </div>
+  
+  
+  
+  <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <div class="w3-display-topleft w3-padding-large w3-xlarge">
+      Logo
+    </div>
+    <div class="w3-display-middle">
+      <h1 class="w3-jumbo w3-animate-zoom" style="color:red;"></h1>
+      <hr class="w3-border-grey" style="margin: auto; width: 40%">
+      <p class="w3-large w3-center" style="color: black; font-size: 24px !important;"></p>
+    </div>
+  </div>
+  
+  </div>
+  
+  
+    
+    <!-- !PAGE CONTENT! -->
+    
+      <!-- Header -->
+  
+      <!-- Header -->
+       <header id="portfolio">
+      
+
+        <h1 style="color: #222;"><b>Hyderabad Tourist Attractions</b></h1>
+     </div>
+     
+    </header>
+    <div class="w3-row-padding w3-padding-16" id="about">
+      <div class="w3-col m6">
+          <img src="../images/abou.avif" alt="Me" style="width:100%">
+      </div>
+      <div class="w3-col m6">
+          <p>
+              <b>About</b><br>
+              Hyderabad, the capital of the Indian state of Telangana, is a city of enchanting contrasts, where the past seamlessly blends with the present to offer an array of captivating tourist attractions. The iconic Charminar stands as the city's timeless symbol, a 16th-century mosque with its four grand arches, exuding historic charm. Nearby, the bustling Laad Bazaar offers a colorful array of traditional bangles, pearls, and other local crafts. The magnificent Golconda Fort, once famed for its legendary diamonds, now beckons visitors to explore its towering ramparts and enjoy panoramic views of the city. The Chowmohalla Palace is a testament to the Nizami opulence with its regal architecture and artifacts. The Qutb Shahi Tombs, an architectural marvel, pay tribute to the city's history. Additionally, the modern skyline of Hyderabad, particularly in the Hi-Tech City area, showcases its dynamic present as a hub of technology and business. While for those fascinated by the glamour of the Indian film industry, the Ramoji Film City provides an exciting behind-the-scenes experience. And let's not forget the culinary delights, with the famous Hyderabadi Biryani and delectable street food to savor. Hyderabad offers a unique blend of history, culture, and contemporary vibrancy, making it a must-visit destination for travelers.Furthermore, the serene Birla Mandir, a striking marble temple dedicated to Lord Venkateswara, offers spiritual solace amidst the bustling city. 
+
+          </p>
+      </div>
+  </div>
+  <br>
+  <br>
+  <div class="w3-center w3-padding-32" id="pagination">
+    <div class="w3-bar">
+        <a href="javascript:void(0);" class="w3-bar-item w3-button w3-hover-black" id="prev-page">«</a>
+        <!-- Add more pages as needed -->
+        <a href="javascript:void(0);" class="w3-bar-item w3-button w3-hover-black" id="next-page">»</a>
+    </div>
+</div>
+  <!-- Grid -->
+  <div class="page-section" id="page-1">
+         
+    <!-- Add your content for page 1 here -->
+  <div class="w3-row-padding">
+  <div class="w3-third w3-container w3-margin-bottom card-zoom">
+    <img src="../images/1picc.jpeg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+    <div class="w3-container w3-white">
+      <p><b>Hussain Sagar Lake</b></p>
+      <p>Renowned as Asia's largest artificial lake, Hussain Sagar Lake is one of the most popular tourist attractions located in Hyderabad. The lake itself was commissioned by Ibrahim Quli Qutub Shah in 1563 and is renowned for its monolith of Lord Buddha that stands right in its centre. </p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>  </b> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w3-third w3-container w3-margin-bottom card-zoom">
+    <img src="../images/2pic.jpg" alt="Norway" style="width:100%" height="90%" class="w3-hover-opacity">
+    <div class="w3-container w3-white">
+      <p><b>Ramoji Film City</b></p>
+      <p>Located on the outskirts of Hyderabad, Ramoji Film City is certified as the World's largest Film Studio Complex by the Guinness Book of World Records. It is the most famous attraction in Hyderabad. The highlights are the film city tour, Sahas Adventure and holiday carnivals.</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>  </b> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w3-third w3-container w3-margin-bottom card-zoom">
+    <img src="../images/3pic.jpeg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+    <div class="w3-container w3-white">
+      <p><b>Golconda Fort</b></p>
+      <p>Golconda Fort is a massive fortress whose ruins stand proudly even today displaying the glory of its rich past and some untold sagas of the city's history. It is reputed for being the area where once, the mighty Koh-I-Noor diamond was stored. In the evening, Golconda Fort comes to life with the light and sound show.</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>  </b> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding">
+  <div class="w3-third w3-container w3-margin-bottom card-zoom">
+          <img src="../images/4pic.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+    <div class="w3-container w3-white">
+      <p><b>Birla Mandir</b></p>
+      <p>One of the popular attractions in Hyderabad, Birla Mandir is dedicated to the Lord Venkateshwara of Tirumala and is modelled after and is the replica of the idol of Balaji of Tirupati. </p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>  </b> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w3-third w3-container w3-margin-bottom card-zoom">
+    <img src="../images/5pic.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+    <div class="w3-container w3-white">
+      <p><b>Chowmahalla Palace</b></p>
+      <p>The Chowmahalla Palace of Hyderabad once served as the official residence of the Nizams of Hyderabad during their reign still retains some of its past splendour.The architecture of the palace is an imposing sight to behold. </p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>  </b> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w3-third w3-container w3-margin-bottom card-zoom">
+    <img src="../images/6pic.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+    <div class="w3-container w3-white">
+      <p><b>Taramati Baradari</b></p>
+      <p>Taramati Baradari is an ancient sarai  built during the reign of Ibrahim Quli Qutub Shah. The building is now a cultural complex which has an open-air auditorium for 1600 people,  a banquet hall and a multi-cuisine restaurant.</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>  </b> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  
+    
+    <!-- Create content sections for each page -->
+  
+      <div class="page-section" id="page-2">
+         
+        <!-- Add your content for page 2 here -->
+  <div class="w3-row-padding">
+    <div class="w3-row-padding">
+      <div class="w3-third w3-container w3-margin-bottom card-zoom">
+              <img src="../images/7pic.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+          <p><b>Laad Bazaar</b></p>
+          <p>Laad Bazaar is a famous and historic market known for its shopping souvenirs and bangles. Located adjacent to Charminar, it is one of the oldest markets in Hyderabad. </p>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+            </div>
+            <div class="w3-col m4 w3-hide-small">
+              <p><span class="w3-padding-large w3-right"><b>  </b> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-third w3-container w3-margin-bottom card-zoom">
+        <img src="../images/8pic.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+          <p><b>Qutub Shahi Tombs</b></p>
+          <p>Located in the Ibrahim Bagh, Qutub Shahi Tombs are a group of small and big mosques and tombs built by the rulers of the Qutub Shah dynasty. </p>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+            </div>
+            <div class="w3-col m4 w3-hide-small">
+              <p><span class="w3-padding-large w3-right"><b>  </b> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-third w3-container w3-margin-bottom card-zoom">
+        <img src="../images/9pic.jpeg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+          <p><b>Salar Jung Museum</b></p>
+          <p>The Salar Jung Museum is located at Darushifa, on the southern bank of the Musi River, in Hyderabad. This is one of the three national museums in the country.</p>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+            </div>
+            <div class="w3-col m4 w3-hide-small">
+              <p><span class="w3-padding-large w3-right"><b>  </b> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom card-zoom">
+        <img src="../images/10pic.jpeg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+          <p><b>Nehru Zoological Park</b></p>
+          <p>With about a 100 species finding habitats here, the Nehru Zoological Park is one of the largest zoos in India. Also known as Hyderabad Zoo, it houses the Indian Rhino, Asiatic Lion, Bengal Tiger, Indian Elephant as well as panthers, pythons, deers, antelopes.</p>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+            </div>
+            <div class="w3-col m4 w3-hide-small">
+              <p><span class="w3-padding-large w3-right"><b>  </b> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-third w3-container w3-margin-bottom card-zoom">
+        <img src="../images/11pic.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+          <p><b>KBR National Park</b></p>
+          <p>Located in the Jubilee Hills area of Hyderabad, KBR National Park, or Kasu Brahmananda Reddy Park, also known as Chiran Fort Palace is a world-famous national park. Boasting of picturesque beauty and a wide variety of flora, fauna and avifauna.</p>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+            </div>
+            <div class="w3-col m4 w3-hide-small">
+              <p><span class="w3-padding-large w3-right"><b>  </b> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-third w3-container w3-margin-bottom card-zoom">
+        <img src="../images/12pic.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+          <p><b>Lumbini Park</b></p>
+          <p>Lumbini Park is a gorgeous urban park named after Lumbini of Nepal. Located alongside Hussain Sagar, the park has an artificial water tank. A huge statue of Lord Buddha is installed in the tank which can be reached through paddle boats. </p>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+            </div>
+            <div class="w3-col m4 w3-hide-small">
+              <p><span class="w3-padding-large w3-right"><b>  </b> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Second Photo Grid-->
+    
+      </div>
+  
+      <!-- Pagination -->
+      <div class="w3-center w3-padding-32" id="pagination">
+        <div class="w3-bar">
+          <a href="javascript:void(0);" class="w3-bar-item w3-button w3-hover-black" id="prev-page">«</a>
+          <a href="javascript:void(0);" class="w3-bar-item w3-button w3-black w3-hover-black page-link" data-page="1">1</a>
+          <a href="javascript:void(0);" class="w3-bar-item w3-button w3-hover-black page-link" data-page="2">2</a>
+          <!-- Add more pages as needed -->
+          <a href="javascript:void(0);" class="w3-bar-item w3-button w3-hover-black" id="next-page">»</a>
+        </div>
+      </div>
+    <!-- Images of Me -->
+    
+  <!-- Work Row -->
+  <div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+  
+    <div class="w3-quarter">
+    <h2>Movie Theaters</h2>
+    <p>Step into the heartbeat of entertainment, where iconic single-screen theaters echo with the nostalgia of classic films, while modern multiplexes redefine luxury and technology In Hyderabad, the magic of cinema and the devotion of fans converge, creating an atmosphere where heroes and their theaters are forever intertwined in a celebration of celluloid dreams.In the majestic city of Hyderabad, the cinematic fervor reaches new heights as each hero becomes a cultural icon, and their fans proudly own theaters that bear the essence of their cinematic journey. </p>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-card w3-white">
+        <img src="../images/amb.avif" alt="Mountains" style="width:100%">
+        <div class="w3-container">
+        <h3>The AMB mall </h3>
+        
+        <p>This place has the best Theatre experience with best sounding, seating and screen. The screens are big and give a great cinematic experience.  The food court is very big and almost have all cuisines. The place is beautiful and is a must visit for everyone. I would prefer watching all movies here. </p>
+        
+        </div>
+        </div>
+      </div>
+    <div class="w3-quarter">
+    <div class="w3-card w3-white">
+      <img src="../images/vakkel.jpg" alt="Snow" style="width:100%">
+      <div class="w3-container">
+      <h3>Sudarshan Theatre 35MM</h3>
+      
+      <p>
+        This place is ment for all the mass movie lovers with best music surrounded all over the theatre there is no rules for movie lovers all the top hero`s movies are released here and rereleased here with same cost budget friendly here we get ah perfect mass vibe with the POWER pack movies 🍿</p>
+      
+      </div>
+      </div>
+    </div>
+    
+    <div class="w3-quarter">
+    <div class="w3-card w3-white">
+      <img src="../images/prasads-imax.jpg" alt="Lights" style="width:100%">
+      <div class="w3-container">
+      <h3>Prasad's Multiplex</h3>
+     
+      <p>Prasad's multiplex and imax is located in Necklace Road, Hyderabad. Its one of the oldest multiplex theatres and the first multiplex in Hyderabad. Watching a movie here will be a great experience. Imax is superb. Because its one of the kind that is well known and very popular in India.There is a food court also a available in our imax. </p>
+     
+      </div>
+      </div>
+    </div>
+    
+    
+    
+    </div>
+    
+    <div class="w3-container">
+      <h2>Gallery</h2>
+      
+    </div>
+    
+    <div class="w3-row-padding w3-padding-16 w3-text-white w3-large">
+      <div class="w3-half w3-margin-bottom">
+        <div class="w3-display-container">
+          <img src="../images/sunrisers-hyderabad-indian-premier-league-ipl-ipl-2021-7680x4320-4935.png" alt="Cinque Terre" style="width:100%">
+          <span class="w3-display-bottomleft w3-padding"></span>
+        </div>
+      
+        <div class="w3-display-container">
+          <img src="../images/hyderabad-pictures.jpg" alt="Cinque Terre" style="width:100%; height:50%;">
+          <span class="w3-display-bottomleft w3-padding"></span>
+      </div>
+      
+      </div>
+      <div class="w3-half">
+        <div class="w3-row-padding" style="margin:0 -16px">
+          <div class="w3-half w3-margin-bottom">
+            <div class="w3-display-container">
+              <img src="../images/rail.avif" height="100%" width="100%">
+              <span class="w3-display-bottomleft w3-padding">Railway</span>
+            </div>
+          </div>
+          <div class="w3-half w3-margin-bottom">
+            <div class="w3-display-container">
+              <img src="../images/fort.avif" alt="San Francisco" style="width:100%">
+              <span class="w3-display-bottomleft w3-padding">Forts</span>
+            </div>
+          </div>
+        </div>
+        <div class="w3-row-padding" style="margin:0 -16px">
+          <div class="w3-half w3-margin-bottom">
+            <div class="w3-display-container">
+              <img src="../images/food.jpeg" alt="Pisa" style="width:100%">
+              <span class="w3-display-bottomleft w3-padding">Food in Hyderabad</span>
+            </div>
+          </div>
+          <div class="w3-half w3-margin-bottom">
+            <div class="w3-display-container">
+              <img src="../images/fort2.avif" alt="Paris" style="width:100%">
+              <span class="w3-display-bottomleft w3-padding"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+      
+    
+    <div class="w3-black w3-center w3-padding-24"><a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity"></a></div>
+  
+  <!-- End page content -->
+  </div>
+
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const openBtn = document.querySelector('.open-btn');
+
+    function toggleNavbar() {
+      if (navbar.style.left === '-300px' || navbar.style.left === '') {
+        navbar.style.left = '0';
+        openBtn.classList.add('active');
+      } else {
+        navbar.style.left = '-300px';
+        openBtn.classList.remove('active');
+      }
+    }
+
+    function closeNavbar() {
+      navbar.style.left = '-300px';
+      openBtn.classList.remove('active');
+    }
+
+    const navLinks = document.querySelectorAll('.navbar a');
+    for (const link of navLinks) {
+      link.addEventListener('click', closeNavbar);
+    }
+    const pageSections = document.querySelectorAll('.page-section');
+      const pageLinks = document.querySelectorAll('.page-link');
+      const prevPageLink = document.getElementById('prev-page');
+      const nextPageLink = document.getElementById('next-page');
+
+      let currentPage = 1; // Current page index
+
+      function showPage(page) {
+        pageSections.forEach((section) => {
+          section.style.display = 'none'; // Hide all sections
+        });
+        document.getElementById(`page-${page}`).style.display = 'block'; // Show the selected section
+      }
+
+      pageLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          const page = parseInt(link.dataset.page, 10);
+          showPage(page);
+        });
+      });
+
+      prevPageLink.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          showPage(currentPage);
+        }
+      });
+
+      nextPageLink.addEventListener('click', () => {
+        // You can add logic here to check if there are more pages to load
+        currentPage++;
+        showPage(currentPage);
+      });
+
+      // Initial load
+      showPage(currentPage);
+  </script>
+</body>
+</html>

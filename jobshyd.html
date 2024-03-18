@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ededed;
+  }
+  body {
+  margin: 0;
+  overscroll-behavior-y: none;
+}
+
+  .navbar {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    left: -300px;
+    top: 0;
+    background-color: #222;
+    color: #fff;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    font-size: 16px;
+    z-index: 3
+  }
+
+  .navbar img.top-image {
+    display: block;
+    width: 100%;
+    height: 25%;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s, background-color 0.3s;
+  }
+
+  .navbar a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+
+  .navbar a:hover {
+    color: #ffcc00;
+    background-color: #444;
+  }
+
+  .navbar a:hover::before {
+    background-color: #ff8400;
+  }
+
+  .separator {
+    margin: 10px 0;
+    border-top: 1px solid #555;
+  }
+  .service-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+
+  .open-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 4;
+  }
+
+  .open-btn-icon {
+    font-size: 24px;
+  }
+
+  .open-btn.active {
+    display: none;
+  }
+
+  .open-btn:hover {
+    background-color: #444;
+  }
+
+  .open-btn:focus {
+    outline: none;
+  }
+  @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap");
+
+:root {
+  /* Colors */
+  --brand-color: hsl(46, 100%, 50%);
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  /* Fonts */
+  --font-title: "Montserrat", sans-serif;
+  --font-text: "Lato", sans-serif;
+}
+
+/* RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h2,
+p {
+  margin: 0;
+}
+
+/* GLOBAL STYLES */
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  margin: 0;
+
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-family: var(--font-title);
+  color: var(--white);
+  line-height: 1.1;
+}
+
+p {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--white);
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+/* Updated .card styles */
+.card {
+  display: grid;
+  place-items: center;
+  width: calc(33.33% - 20px); /* Set width for each card with margin */
+  max-width: 300px; /* Set maximum width for responsiveness */
+  height: auto; /* Allow content to determine height */
+  overflow: hidden;
+  border-radius: 0.625rem;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+  margin: 15px; /* Adjust margin for increased spacing between cards */
+  min-height: 600px; /* Set a minimum height for the cards */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .card {
+    width: calc(50% - 20px); /* Adjust width for two cards per row on smaller screens */
+  }
+}
+
+/* Media query for even smaller screens */
+@media screen and (max-width: 480px) {
+  .card {
+    width: calc(100% - 20px); /* Adjust width for one card per row on even smaller screens */
+  }
+}
+
+
+/* Updated .card-container styles */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 -10px; /* Add negative margin to offset the margin added to the cards */
+}
+
+
+.card > * {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.card__background {
+  object-fit: cover;
+  max-width: 100%;
+  height: 100%;
+}
+
+.card__content {
+  --flow-space: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-end;
+  height: 55%;
+  padding: 12% 1.25rem 1.875rem;
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 0%, 0) 0%,
+    hsla(0, 0%, 0%, 0.3) 10%,
+    hsl(0, 0%, 0%) 100%
+  );
+}
+
+.card__content--container {
+  --flow-space: 1.25rem;
+}
+
+.card__title {
+  position: relative;
+  width: fit-content;
+  width: -moz-fit-content; /* Prefijo necesario para Firefox  */
+}
+
+.card__title::after {
+  content: "";
+  position: absolute;
+  height: 0.3125rem;
+  width: calc(100% + 1.25rem);
+  bottom: calc((1.25rem - 0.5rem) * -1);
+  left: -1.25rem;
+  background-color: var(--brand-color);
+}
+
+.card__button {
+  padding: 0.75em 1.6em;
+  width: fit-content;
+  width: -moz-fit-content; /* Prefijo necesario para Firefox  */
+  font-variant: small-caps;
+  font-weight: bold;
+  border-radius: 0.45em;
+  border: none;
+  background-color: var(--brand-color);
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  color: var(--black);
+}
+
+
+
+
+
+.card__button:focus {
+  outline: 2px solid black;
+  outline-offset: -5px;
+}
+
+@media (any-hover: hover) and (any-pointer: fine) {
+  .card__content {
+    transform: translateY(62%);
+    transition: transform 500ms ease-out;
+    transition-delay: 500ms;
+  }
+
+  .card__title::after {
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 1000ms ease-in, transform 500ms ease-out;
+    transition-delay: 500ms;
+    transform-origin: right;
+  }
+
+  .card__background {
+    transition: transform 500ms ease-in;
+  }
+
+  .card__content--container > :not(.card__title),
+  .card__button {
+    opacity: 0;
+    transition: transform 500ms ease-out, opacity 500ms ease-out;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: scale(1.05);
+    transition: transform 500ms ease-in;
+  }
+
+  .card:hover .card__content,
+  .card:focus-within .card__content {
+    transform: translateY(0);
+    transition: transform 500ms ease-in;
+  }
+
+  .card:focus-within .card__content {
+    transition-duration: 0ms;
+  }
+
+  .card:hover .card__background,
+  .card:focus-within .card__background {
+    transform: scale(1.3);
+  }
+
+  .card:hover .card__content--container > :not(.card__title),
+  .card:hover .card__button,
+  .card:focus-within .card__content--container > :not(.card__title),
+  .card:focus-within .card__button {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+    transition-delay: 1000ms;
+  }
+
+  .card:hover .card__title::after,
+  .card:focus-within .card__title::after {
+    opacity: 1;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: opacity 500ms ease-in, transform 500ms ease-in;
+    transition-delay: 500ms;
+  }
+}
+</style>
+</head>
+<body>
+  <button class="open-btn" onclick="toggleNavbar()">
+    <span class="open-btn-icon">☰</span>
+  </button>
+  
+   <div>
+    <p> <span class="spacer"></span> </p>
+   </div>
+
+  <div class="card-container">
+  <article class="card">
+    <img
+      class="card__background"
+      src="../images/amz.jpg"
+      alt="Photo of Cartagena's cathedral at the background and some colonial style houses"
+      width="1920" height="2193"/>
+    <div class="card__content | flow">
+      <div class="card__content--container | flow">
+        <h2 class="card__title">Amazon</h2>
+        <p class="card__description">
+          Amazon has a large presence in Hyderabad,India. It is one of Amazon's largest global development centers, with over 15,000 employees. 
+        </p>
+      </div>
+      <a href="https://www.amazon.jobs/en/locations/hyderabad-india" class="card__button" target="_blank">Get Details</a>
+    </div>
+  </article>
+  <article class="card">
+    <img
+      class="card__background"
+      src="../images/deloitte-towers.jpg"
+      alt="Photo of Cartagena's cathedral at the background and some colonial style houses"
+      width="1920" height="2193"/>
+    <div class="card__content | flow">
+      <div class="card__content--container | flow">
+        <h2 class="card__title">Deloitte</h2>
+        <p class="card__description">
+          Deloitte is a multinational professional services network headquartered in London.It is one of the Big Four accounting firms.
+        </p>
+      </div>
+      <a href="https://www2.deloitte.com/in/en/footerlinks/office-locator/india-offices/hyderabad.html" class="card__button" target="_blank">Get Details</a>
+    </div>
+  </article><article class="card">
+    <img
+      class="card__background"
+      src="../images/jp.jpg"
+      alt="Photo of Cartagena's cathedral at the background and some colonial style houses"
+      width="1920" height="2193"/>
+    <div class="card__content | flow">
+      <div class="card__content--container | flow">
+        <h2 class="card__title">JP Morgan</h2>
+        <p class="card__description">
+          JPMorgan Chase & Co. is a well-known multinational investment bank and financial services company. 
+        </p>
+      </div>
+      <a href="https://careers.jpmorgan.com/us/en/about-us/locations/hyderabad" class="card__button" target="_blank">Get Details</a>
+    </div>
+  </article>
+  <article class="card">
+    <img
+      class="card__background"
+      src="../images/ibm.webp"
+      alt="Photo of Cartagena's cathedral at the background and some colonial style houses"
+      width="1920" height="2193"/>
+    <div class="card__content | flow">
+      <div class="card__content--container | flow">
+        <h2 class="card__title">IBM</h2>
+        <p class="card__description">
+          The campus is home to a variety of IBM businesses, including software development, consulting, and research.
+        </p>
+      </div>
+      <a href="https://www.ibm.com/in-en" class="card__button" target="_blank">Get Details</a>
+    </div>
+  </article>
+  </div>
+
+  
+  <div class="navbar" id="navbar">
+    <a href="#" onclick="closeNavbar();"><span class="service-icon">◁</span> Back</a>
+    <img src="../images/hyderabadimage2.jpg" alt="Navbar Image" class="top-image">
+    <a href="navbar.html"><span class="service-icon">🏠</span> Home</a>
+    <div class="separator"></div>
+    <a href="abouthyd.html"><span class="service-icon">ℹ️</span> About the City</a>
+    <div class="separator"></div>
+    <a href="touristattractionshyd.html"><span class="service-icon">🏞️</span> Tourist Attractions</a>
+    <div class="separator"></div>
+    <a href="healthcareserviceshyd.html"><span class="service-icon">🏥</span> HealthCare Services</a>
+    <div class="separator"></div>
+    <a href="hotelshyd.html"><span class="service-icon">🏨</span> Hotels</a>
+    <div class="separator"></div>
+    <a href="bookings.html"><span class="service-icon">🔑</span> Booking</a>
+    <div class="separator"></div>
+    <a href="transportserviceshyd.html"><span class="service-icon">🚆🚌</span> Transportation Services</a>
+    <div class="separator"></div>
+  <a href="collegeshyd.html"><span class="service-icon">🏛️🏫</span> Educational Institutions</a>
+    <div class="separator"></div>
+    <a href="jobshyd.html"><span class="service-icon">💼</span>Companies/Job Findings</a>
+    <div class="separator"></div>
+    <a href="shoppingmallshyd.html"><span class="service-icon">🛍️</span> Shopping Malls</a>
+    <div class="separator"></div>
+    <a href="restaurents.html"><span class="service-icon">🏨</span> Restaurents</a>
+    <div class="separator"></div>
+    <a href="conatcthyd.html"><span class="service-icon">📞</span> Contact</a>
+  </div>
+  
+  <script>
+    const navbar = document.getElementById('navbar');
+    const openBtn = document.querySelector('.open-btn');
+
+    function toggleNavbar() {
+      if (navbar.style.left === '-300px' || navbar.style.left === '') {
+        navbar.style.left = '0';
+        openBtn.classList.add('active');
+      } else {
+        navbar.style.left = '-300px';
+        openBtn.classList.remove('active');
+      }
+    }
+
+    function closeNavbar() {
+      navbar.style.left = '-300px';
+      openBtn.classList.remove('active');
+    }
+
+    const navLinks = document.querySelectorAll('.navbar a');
+    for (const link of navLinks) {
+      link.addEventListener('click', closeNavbar);
+    }
+  </script>
+</body>
+</html>

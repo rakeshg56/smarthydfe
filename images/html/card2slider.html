@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Add this CSS to your stylesheet */
+      /* Add this CSS to your stylesheet */
+
+/* Ensure the container doesn't overflow and allows horizontal scrolling */
+.exploresSl {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 20px; /* Reduced the gap between items */
+    padding: 10px; /* Add some padding for spacing */
+}
+.exploresItem {
+    flex: 0 0 calc(33.33% - 10px); /* Increased the width of each item and reduced gap */
+    max-width: calc(33.33% - 10px); /* Adjust the max-width to control responsiveness */
+    position: relative;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+/* Style each individual item */
+.exploresItem:hover {
+    transform: scale(1.10); /* Add a hover effect if desired */
+}
+
+/* Style the images and text within each item */
+.explor_Img img {
+    max-width: 100%; /* Make images occupy the full width of their container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.explor_Tx {
+    margin-top: 10px; /* Add space between the image and text */
+}
+
+/* Style the links if needed */
+.exploresItem p a {
+    color: #333; /* Adjust the link color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    </style>
+  </head>
+  <body>
+    <section class="explorScn">
+      <div class="container">
+        <h1 class="text-center wow fadeInUp animate" data-wow-delay="0.1s">Explore Delhi</h1>
+        <h6 class="text-center wow fadeInUp animate" data-wow-delay="0.2s">Making Tourism a Pleasant Experience in Delhi</h6>
+        <div class="exploresSl owl-carousel wow fadeInUp animate" data-wow-delay="0.8s" id="exploresSl">
+          <div class="exploresItem">
+            <figure class="explor_Img">
+              <img src="../dttdc/images/explor_Img1.jpg" alt="" class="w-100">
+              <div class="exploresIcon"><img src="https://www.delhitourism.gov.in/dttdc/images/explor_Img2.jpg" alt="" class="w-auto"></div>
+            </figure>
+          </div>
+
+          <div class="exploresItem">
+            <figure class="explor_Img">
+              <img src="../dttdc/images/explor_Img2.jpg" alt="" class="w-100">
+              <div class="exploresIcon"><img src="https://www.delhitourism.gov.in/dttdc/images/explor_Img3.jpg" alt="" class="w-auto"></div>
+            </figure>
+          </div>
+          <div class="exploresItem">
+            <figure class="explor_Img">
+              <img src="../dttdc/images/explor_Img2.jpg" alt="" class="w-100">
+              <div class="exploresIcon"><img src="https://www.delhitourism.gov.in/dttdc/images/explor_Img3.jpg" alt="" class="w-auto"></div>
+            </figure>
+          </div>
+          <div class="exploresItem">
+            <figure class="explor_Img">
+              <img src="../dttdc/images/explor_Img2.jpg" alt="" class="w-100">
+              <div class="exploresIcon"><img src="https://www.delhitourism.gov.in/dttdc/images/explor_Img3.jpg" alt="" class="w-auto"></div>
+            </figure>
+          </div>
+          <div class="exploresItem">
+            <figure class="explor_Img">
+              <img src="../dttdc/images/explor_Img2.jpg" alt="" class="w-100">
+              <div class="exploresIcon"><img src="https://www.delhitourism.gov.in/dttdc/images/explor_Img3.jpg" alt="" class="w-auto"></div>
+            </figure>
+          </div>
+          <div class="exploresItem">
+            <figure class="explor_Img">
+              <img src="../dttdc/images/explor_Img2.jpg" alt="" class="w-100">
+              <div class="exploresIcon"><img src="https://www.delhitourism.gov.in/dttdc/images/explor_Img3.jpg" alt="" class="w-auto"></div>
+            </figure>
+          </div>
+          <div class="exploresItem">
+            <figure class="explor_Img">
+              <img src="../dttdc/images/explor_Img2.jpg" alt="" class="w-100">
+              <div class="exploresIcon"><img src="https://www.delhitourism.gov.in/dttdc/images/explor_Img3.jpg" alt="" class="w-auto"></div>
+            </figure>
+          </div>
+          <div class="exploresItem">
+            <figure class="explor_Img">
+              <img src="../dttdc/images/explor_Img2.jpg" alt="" class="w-100">
+              <div class="exploresIcon"><img src="https://www.delhitourism.gov.in/dttdc/images/explor_Img3.jpg" alt="" class="w-auto"></div>
+            </figure>
+          </div>
+
+          <!-- Add more items here -->
+
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

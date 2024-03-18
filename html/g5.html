@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      * {margin: 0; padding: 0;}
+
+body
+{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.wrapper
+{
+  position: relative;
+  max-width: 1060px;
+  width: 100%;
+  height: 56.25vw;
+  max-height: 540px;
+  box-shadow: 0 0 15px rgba(0,0,0,.35);
+}
+
+.slider-wrap
+{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider
+{
+  position: relative;
+  left: 0;
+  height: 100%;
+  width: 500%;
+  transition: 300ms ease-in-out;
+}
+
+.slide
+{
+  float: left;
+  height: 100%;
+  width: 20%;
+  background-size: cover;
+}
+
+.slide:nth-child(1) { background-image: url(../images/poster.png); }
+.slide:nth-child(2) { background-image: url(https://unsplash.it/961/540); }
+.slide:nth-child(3) { background-image: url(https://unsplash.it/962/540); }
+.slide:nth-child(4) { background-image: url(https://unsplash.it/963/540); }
+.slide:nth-child(5) { background-image: url(https://unsplash.it/964/540); }
+
+.btn
+{
+  position: absolute;
+  top: 250px;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  font-weight: 700;
+  color: #FFF;
+  background: #2C2C2C;
+  cursor: pointer;
+  user-select: none;
+  transition: background 150ms ease-in-out;
+}
+
+.btn:first-child { left: -.5em;  }
+.btn:last-child  { right: -.5em; }
+
+.btn:hover  { background: #131313; }
+.btn:active
+{
+  transform: scale(.97);
+  background: #000;
+}
+
+@media(max-width: 950px)
+{
+  .slide {background-position: center;}
+  
+  .btn { top: -.5em; }
+  .btn:first-child { left: calc(50% - 1em); }
+  .btn:last-child { left: calc(50% + 1em); }
+}
+    </style>
+  </head>
+  <body>
+     <div class="wrapper">
+  <div class="slider-wrap">
+    <div id="slider" class="slider">
+      <div class="slide"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+    </div>
+  </div>
+  <div class="btn-wrap">
+    <i id="prev" class="material-icons btn">&#xE5CB;</i>
+    <i id="next" class="material-icons btn">&#xE5CC;</i>
+  </div>
+</div>
+      <script >
+        var prev = document.getElementById('prev');
+var next = document.getElementById('next');
+var slider = document.getElementById('slider');
+var total = 0, step = 100;
+
+prev.addEventListener('click', slide);
+next.addEventListener('click', slide);
+
+function slide()
+{
+  if(this.getAttribute('id') == 'prev')
+  {
+    if(total == 0)
+    {
+      total = -400;
+      slider.style.left = total + '%';
+    }
+    else
+    {
+      total += step;
+      slider.style.left = total + '%';
+    }
+  }
+  else
+  {
+    if(total == -400)
+    {
+      total = 0;
+      slider.style.left = total;
+    }
+    else
+    {
+      total -= step;
+      slider.style.left = total + '%';
+    }
+  }
+}
+
+      </script>
+  </body>
+</html>

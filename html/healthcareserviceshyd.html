@@ -1,0 +1,849 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Health Care Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
+
+:root {
+  --main-green: #79dd09;
+  --main-green-rgb-015: rgba(121, 221, 9, 0.1);
+  --main-yellow: #bdbb49;
+  --main-yellow-rgb-015: rgba(189, 187, 73, 0.1);
+  --main-red: #bd150b;
+  --main-red-rgb-015: rgba(189, 21, 11, 0.1);
+  --main-blue: #0076bd;
+  --main-blue-rgb-015: rgba(0, 118, 189, 0.1);
+}
+/* Add this meta tag to the head for responsive design */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* ... rest of your styles ... */
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    width: 100%;
+    left: 0;
+  }
+
+  .postcard .postcard__img {
+    display: none; /* Example: Hide the postcard images on small screens */
+  }
+
+  /* Add more styles for smaller screens if needed */
+}
+
+@media screen and (min-width: 769px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .navbar {
+    width: 300px;
+    left: -300px;
+  }
+
+  /* Add more styles for larger screens if needed */
+}
+
+/* Additional responsive adjustments */
+.postcard .postcard__img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Add other responsive styles and media queries as needed */
+
+/* ... rest of your styles ... */
+
+body {
+  font-family: "Baloo 2", cursive;
+  font-size: 16px;
+  background-color:rgb(2, 2, 35);
+  text-rendering: optimizeLegibility;
+  font-weight: initial;
+}
+
+.dark {
+  background: rgb(2, 2, 35);
+}
+
+
+a,
+a:hover {
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+#pageHeaderTitle {
+  margin: 2rem 0;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.postcard {
+  flex-wrap: wrap;
+  display: flex;
+  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+  border-radius: 10px;
+  margin: 0 0 2rem 0;
+  overflow: hidden;
+  position: relative;
+  color: #ffffff;
+}
+
+.postcard.dark {
+  background-color: #18151f;
+}
+
+.postcard.light {
+  background-color: #e1e5ea;
+}
+
+.postcard.dark .t-dark {
+  color: #18151f;
+}
+
+.postcard a {
+  color: inherit;
+}
+
+.postcard h1,
+.postcard .h1 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.postcard .small {
+  font-size: 80%;
+}
+
+.postcard .postcard__title {
+  font-size: 1.75rem;
+}
+
+.postcard .postcard__img {
+  max-height: 180px;
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+.postcard .postcard__img_link {
+  display: contents;
+}
+
+.postcard .postcard__bar {
+  width: 50px;
+  height: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: #424242;
+  transition: width 0.2s ease;
+}
+
+.postcard .postcard__text {
+  padding: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.postcard .postcard__preview-txt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: justify;
+  height: 100%;
+}
+
+.postcard .postcard__tagbox {
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 30px;
+  margin: 20px 0 0 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.postcard .postcard__tagbox .tag__item {
+  display: inline-block;
+  background: rgba(83, 83, 83, 0.4);
+  border-radius: 3px;
+  padding: 2.5px 10px;
+  margin: 0 5px 5px 0;
+  cursor: default;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+.postcard .postcard__tagbox .tag__item:hover {
+  background: rgba(83, 83, 83, 0.8);
+}
+
+.postcard:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(-70deg, #424242, transparent 50%);
+  opacity: 1;
+  border-radius: 10px;
+}
+
+.postcard:hover .postcard__bar {
+  width: 100px;
+}
+
+@media screen and (min-width: 769px) {
+  .postcard {
+    flex-wrap: inherit;
+  }
+
+  .postcard .postcard__title {
+    font-size: 2rem;
+  }
+
+  .postcard .postcard__tagbox {
+    justify-content: start;
+  }
+
+  .postcard .postcard__img {
+    max-width: 700px;
+    max-height: 80%;
+    transition: transform 0.3s ease;
+  }
+
+  .postcard .postcard__text {
+    padding: 3rem;
+    width: 100%;
+  }
+
+  .media.postcard .postcard__text:before {
+    content: "";
+    position: absolute;
+    display: block;
+    background: #18151f;
+    top: -20%;
+    height: 130%;
+    width: 55px;
+  }
+
+  .postcard:hover .postcard__img {
+    transform: scale(1.1);
+  }
+
+  .postcard:nth-child(2n+1) {
+    flex-direction: row;
+  }
+
+  .postcard:nth-child(2n+0) {
+    flex-direction: row-reverse;
+  }
+
+  .postcard:nth-child(2n+1) .postcard__text:before {
+    left: -12px !important;
+    transform: rotate(4deg);
+  }
+
+  .postcard:nth-child(2n+0) .postcard__text:before {
+    right: -12px !important;
+    transform: rotate(-4deg);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .postcard .postcard__text {
+    padding: 2rem 3.5rem;
+  }
+
+  .postcard .postcard__text:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: -20%;
+    height: 130%;
+    width: 55px;
+  }
+
+  .postcard.dark .postcard__text:before {
+    background: #18151f;
+  }
+
+  .postcard.light .postcard__text:before {
+    background: #e1e5ea;
+  }
+}
+
+/* COLORS */
+.postcard .postcard__tagbox .green.play:hover {
+  background: var(--main-green);
+  color: black;
+}
+
+.green .postcard__title:hover {
+  color: var(--main-green);
+}
+
+.green .postcard__bar {
+  background-color: var(--main-green);
+}
+
+.green:before {
+  background-image: linear-gradient(-30deg, var(--main-green-rgb-015), transparent 50%);
+}
+
+.green:nth-child(2n):before {
+  background-image: linear-gradient(30deg, var(--main-green-rgb-015), transparent 50%);
+}
+
+.postcard .postcard__tagbox .blue.play:hover {
+  background: var(--main-blue);
+}
+
+.blue .postcard__title:hover {
+  color: var(--main-blue);
+}
+
+.blue .postcard__bar {
+  background-color: var(--main-blue);
+}
+
+.blue:before {
+  background-image: linear-gradient(-30deg, var(--main-blue-rgb-015), transparent 50%);
+}
+
+.blue:nth-child(2n):before {
+  background-image: linear-gradient(30deg, var(--main-blue-rgb-015), transparent 50%);
+}
+
+.postcard .postcard__tagbox .red.play:hover {
+  background: var(--main-red);
+}
+
+.red .postcard__title:hover {
+  color: var(--main-red);
+}
+
+.red .postcard__bar {
+  background-color: var(--main-red);
+}
+
+.red:before {
+  background-image: linear-gradient(-30deg, var(--main-red-rgb-015), transparent 50%);
+}
+
+.red:nth-child(2n):before {
+  background-image: linear-gradient(30deg, var(--main-red-rgb-015), transparent 50%);
+}
+
+.postcard .postcard__tagbox .yellow.play:hover {
+  background: var(--main-yellow);
+  color: black;
+}
+
+.yellow .postcard__title:hover {
+  color: var(--main-yellow);
+}
+
+.yellow .postcard__bar {
+  background-color: var(--main-yellow);
+}
+
+.yellow:before {
+  background-image: linear-gradient(-30deg, var(--main-yellow-rgb-015), transparent 50%);
+}
+
+.yellow:nth-child(2n):before {
+  background-image: linear-gradient(30deg, var(--main-yellow-rgb-015), transparent 50%);
+}
+
+@media screen and (min-width: 769px) {
+  .green:before {
+    background-image: linear-gradient(-80deg, var(--main-green-rgb-015), transparent 50%);
+  }
+
+  .green:nth-child(2n):before {
+    background-image: linear-gradient(80deg, var(--main-green-rgb-015), transparent 50%);
+  }
+
+  .blue:before {
+    background-image: linear-gradient(-80deg, var(--main-blue-rgb-015), transparent 50%);
+  }
+
+  .blue:nth-child(2n):before {
+    background-image: linear-gradient(80deg, var(--main-blue-rgb-015), transparent 50%);
+  }
+
+  .red:before {
+    background-image: linear-gradient(-80deg, var(--main-red-rgb-015), transparent 50%);
+  }
+
+  .red:nth-child(2n):before {
+    background-image: linear-gradient(80deg, var(--main-red-rgb-015), transparent 50%);
+  }
+
+  .yellow:before {
+    background-image: linear-gradient(-80deg, var(--main-yellow-rgb-015), transparent 50%);
+  }
+
+  .yellow:nth-child(2n):before {
+    background-image: linear-gradient(80deg, var(--main-yellow-rgb-015), transparent 50%);
+  }
+}
+.navbar {
+    height: 100vh;
+    width: 300px;
+    position: fixed;
+    left: -300px;
+    top: 0;
+    background-color: #222;
+    color: #fff;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    font-size: 16px;
+    z-index: 3;
+  }
+
+  .navbar img.top-image {
+    display: block;
+    width: 100%;
+    height: 25%;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s, background-color 0.3s;
+  }
+
+  .navbar a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+
+  .navbar a:hover {
+    color: #ffcc00;
+    background-color: #444;
+  }
+
+  .navbar a:hover::before {
+    background-color: #ffcc00;
+  }
+
+  .separator {
+    margin: 10px 0;
+    border-top: 1px solid #555;
+  }
+  .service-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+
+  .open-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1;
+  }
+
+  .open-btn-icon {
+    font-size: 24px;
+  }
+
+  .open-btn.active {
+    display: none;
+  }
+
+  .open-btn:hover {
+    background-color: #444;
+  }
+
+  .open-btn:focus {
+    outline: none;
+  }
+  .welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 0 20px;
+    text-align: center;
+    margin-bottom: 0px;
+  }
+  .welcome-heading {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  .greetings {
+    font-size: 24px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  .greetings em {
+    font-weight: bold;
+    color: #111112;
+  }
+  .gallery-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .gallery-image {
+    width: 48%;
+    margin-bottom: 10px;
+  }
+  .social-media-section {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  .social-media-icon {
+    font-size: 24px;
+    color: #b90c18;
+    margin: 0 10px;
+    transition: color 0.3s;
+  }
+  .social-media-icon:hover {
+    color: #d3151e;
+  }
+  .social-media-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-register-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .login-register-button:hover {
+    background-color: #444;
+    color: #fff;
+  }
+   /* styles.css */
+   
+
+    .carousel-container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+     width: 100%;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .overlay-text {
+    position: absolute;
+    top: 20px; /* Adjust this value to your preferred top position */
+    left: 90px; /* Adjust this value to your preferred left position */
+    color:white; /* Text color in yellow */
+    padding: 10px;
+    font-size: 70px; /* Larger font size for a painted text effect */
+    text-align: left; /* Align the text to the left */
+    opacity: 1; /* Set opacity to 1 for full visibility */
+    transition: opacity 0.3s;
+    font-family: "Pacifico", cursive; /* Use the Pacifico font for painted text effect */
+}
+
+
+.social-media-icons {
+            position: absolute;
+            bottom: -10px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            padding: 20px;
+        }
+
+        .social-icon {
+            font-size: 40px;
+            margin: 0 30px;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icon:hover {
+            color: skyblue; /* Facebook color on hover */
+        }
+
+
+  .slide:hover .overlay-text {
+    opacity: 2;
+  }
+  .icon-container {
+      /* Move the icon to the left and set a distance from the right corner */
+      position: absolute;
+      top: 20px; /* Adjust the top position as needed */
+      right: 20px; /* Adjust the right position to create a distance from the right corner */
+    }
+        .icon {
+            width: 40px;
+            height: 40px;
+            background-color: #3498db;
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        /* Style for the dropdown content */
+         .dropdown-content {
+      /* Adjust the width of the dropdown content and move it to the left */
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      width: 160px; /* Adjust the width as needed */
+      box-shadow: 0px -8px 16px 0px rgba(0,0,0,0.2); /* Adjust the box-shadow to move it to the left */
+      z-index: 1;
+      top: 50px; /* Position the dropdown below the icon */
+      right: -20px; /* Create a distance from the icon container */
+    }
+        
+        .show-dropdown {
+            display: block;
+        }
+        /* Style for dropdown items */
+        .dropdown-item {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: #333;
+        }
+
+    </style>
+  </head>
+  <body>
+    <button class="open-btn" onclick="toggleNavbar()">
+      <span class="open-btn-icon">☰</span>
+    </button>
+    <div class="navbar" id="navbar">
+      <a href="#" onclick="closeNavbar();"><span class="service-icon">◁</span> Back</a>
+      <img src="../images/hyderabad.jpg" alt="Navbar Image" class="top-image">
+      <a href="navbar.html"><span class="service-icon">🏠</span> Home</a>
+      <div class="separator"></div>
+      <a href="abouthyd.html"><span class="service-icon">ℹ️</span> About the City</a>
+      <div class="separator"></div>
+      <a href="touristattractionshyd.html"><span class="service-icon">🏞️</span> Tourist Attractions</a>
+      <div class="separator"></div>
+      <a href="healthcareserviceshyd.html"><span class="service-icon">🏥</span> HealthCare Services</a>
+      <div class="separator"></div>
+      <a href="hotelshyd.html"><span class="service-icon">🏨</span> Hotels</a>
+      <div class="separator"></div>
+      <a href="bookings.html"><span class="service-icon">🔑</span> Booking</a>
+    <div class="separator"></div>
+      <a href="transportserviceshyd.html"><span class="service-icon">🚆🚌</span> Transportation Services</a>
+      <div class="separator"></div>
+      <a href="collegeshyd.html"><span class="service-icon">🏛️🏫</span> Educational Institutions</a>
+      <div class="separator"></div>
+      <a href="jobshyd.html"><span class="service-icon">💼</span>Companies/Job Findings</a>
+      <div class="separator"></div>
+      <a href="shoppingmallshyd.html"><span class="service-icon">🛍️</span> Shopping Malls</a>
+      <div class="separator"></div>
+      <a href="restaurents.html"><span class="service-icon">🏨</span> Restaurents</a>
+      <div class="separator"></div>
+      <a href="conatcthyd.html"><span class="service-icon">📞</span> Contact</a>
+   
+    </div>
+    
+    
+    <section class="dark">
+      <div class="container py-4">
+        <h1 class="h1 text-center" id="pageHeaderTitle">HOSPITALS</h1>
+    
+        <article class="postcard dark blue">
+          <a class="postcard__img_link" href="https://www.yashodahospitals.com/location/somajiguda//?utm_source=Google-Business-Page&utm_medium=Somajiguda">
+            <img class="postcard__img" src="https://cdn.yashodahospitals.com/wp-content/uploads/malakpet-4.jpg" alt="Image Title" />
+          </a>
+          <div class="postcard__text">
+            <h1 class="postcard__title blue"><a href="#">YASHODA</a></h1>
+            <div class="postcard__subtitle small">
+              
+            </div>
+            <div class="postcard__bar"></div>
+            <div class="postcard__preview-txt"><p>India’s Most Advanced Multi-Specialty Hospital.<strong>Number of Beds-2100</strong><br><br> 
+              24/7 Emergency Services & Care <strong>||</strong> Right Diagnosis & Treatment <strong>||</strong> Best Team of Experts</p>
+              <p><Address>Rajbhavan Road, Somajiguda, Hyderabad</Address>Phone: +91 6366920627<br>
+              Email:query@yashodamail.com</p></div>
+            <ul class="postcard__tagbox">
+              <li class="tag__item"><i class="fas fa-tag mr-2"></i>Book Appointment</li>
+              
+              <li class="tag__item play blue">
+                <a href="https://maps.app.goo.gl/6b1m3GnKVeExwJD97"><i class="fas fa-play mr-2"></i>Directions</a>
+              </li>
+            </ul>
+          </div>
+        </article>
+        <article class="postcard dark red">
+          <a class="postcard__img_link" href="https://starhospitals.in/	">
+            <img class="postcard__img" src="../images/starthospitalshyd" alt="Image Title" />	
+          </a>
+          <div class="postcard__text">
+            <h1 class="postcard__title red"><a href="#">STAR HOSPITAL</a></h1>
+            <div class="postcard__subtitle small">
+              
+            </div>
+            <div class="postcard__bar"></div>
+            <div class="postcard__preview-txt">One of the leading Multi Speciality Hospital in Hyderabad, India.24x7 Service Ambulance Service||Neurosurgeons Orthopedics||Cardiologists<br>
+              Road.No.10,Banjara Hills,Hyderabad<br>
+              	040-44 777777	<br>
+                exceint@starhospitals.co.in	
+            	</p></div>
+          
+            <ul class="postcard__tagbox">
+              <li class="tag__item"><i class="fas fa-tag mr-2"></i>Book Appointment</li>
+              
+              <li class="tag__item play blue">
+                <a href="https://maps.app.goo.gl/5ZYB3AkCX4B7JZGC6"><i class="fas fa-play mr-2"></i>Directions</a>
+              </li>
+            </ul>
+          </div>
+        </article>
+        <article class="postcard dark green">
+          <a class="postcard__img_link" href="https://www.kimshospitals.com/	">
+            <img class="postcard__img" src="../images/kimshyderabad" alt="Image Title" />
+          </a>
+          <div class="postcard__text">
+            <h1 class="postcard__title green"><a href="#">KIMS</a></h1>
+            <div class="postcard__subtitle small">
+             
+            </div>
+            <div class="postcard__bar"></div>
+            <div class="postcard__preview-txt">KIMS Hospitals is one of the leading 1800 bed multi super speciality hospital in Hyderabad providing healthcare services for Cardiology, Neurology Number of Beds-4000 Andrology and Infertility Center || Arthoscopy Center|| Bone and Joint Center<br>
+              <br>
+              Chitrapuri Colony,Gachibowli,Hyderabad	<br>
+             
+              040-44885000<br>
+              
+              	assistance@kimshospitals.com
+            </div>
+            <ul class="postcard__tagbox">
+              <li class="tag__item"><i class="fas fa-tag mr-2"></i>Book Appointment</li>
+              
+              <li class="tag__item play blue">
+                <a href="https://maps.app.goo.gl/bXpE19Qj9sjZXeT89"><i class="fas fa-play mr-2"></i>Directions</a>
+              </li>
+            </ul>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+    
+    <script>
+       const navbar = document.getElementById('navbar');
+    const openBtn = document.querySelector('.open-btn');
+
+    function toggleNavbar() {
+      if (navbar.style.left === '-300px' || navbar.style.left === '') {
+        navbar.style.left = '0';
+        openBtn.classList.add('active');
+      } else {
+        navbar.style.left = '-300px';
+        openBtn.classList.remove('active');
+      }
+    }
+
+    function closeNavbar() {
+      navbar.style.left = '-300px';
+      openBtn.classList.remove('active');
+    }
+
+    const navLinks = document.querySelectorAll('.navbar a');
+    for (const link of navLinks) {
+      link.addEventListener('click', closeNavbar);
+    }
+      // script.js
+      const slides = document.querySelectorAll('.slide');
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      if (i === index) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  setInterval(nextSlide, 4000); // Auto slide every 2 seconds
+  showSlide(currentIndex); // Show initial slide
+
+  
+  </script>
+  </body>
+</html>

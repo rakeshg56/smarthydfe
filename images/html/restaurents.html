@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+
+  .navbar {
+    height: 100vh;
+    width: 300px;
+    position: fixed;
+    left: -300px;
+    top: 0;
+    background-color: #222;
+    color: #fff;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    font-size: 16px;
+  }
+
+  .navbar img.top-image {
+    display: block;
+    width: 100%;
+    height: 25%;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s, background-color 0.3s;
+  }
+
+  .navbar a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+
+  .navbar a:hover {
+    color: #ffcc00;
+    background-color: #444;
+  }
+
+  .navbar a:hover::before {
+    background-color: #ffcc00;
+  }
+
+  .separator {
+    margin: 10px 0;
+    border-top: 1px solid #555;
+  }
+  .service-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+
+  .open-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1;
+  }
+
+  .open-btn-icon {
+    font-size: 24px;
+  }
+
+  .open-btn.active {
+    display: none;
+  }
+
+  .open-btn:hover {
+    background-color: #444;
+  }
+
+  .open-btn:focus {
+    outline: none;
+  }
+  .welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 0 20px;
+    text-align: center;
+    margin-bottom: 0px;
+  }
+  .welcome-heading {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  .greetings {
+    font-size: 24px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  .greetings em {
+    font-weight: bold;
+    color: #111112;
+  }
+  .gallery-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .gallery-image {
+    width: 48%;
+    margin-bottom: 10px;
+  }
+  .social-media-section {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  .social-media-icon {
+    font-size: 24px;
+    color: #b90c18;
+    margin: 0 10px;
+    transition: color 0.3s;
+  }
+  .social-media-icon:hover {
+    color: #d3151e;
+  }
+  .social-media-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-register-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .login-register-button:hover {
+    background-color: #444;
+    color: #fff;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap');
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Playfair Display', serif;
+}
+body{ background:url(https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1776&q=80);
+  background-size:cover;
+  background-position:right;
+  background-attachment:fixed;
+}
+#header{
+  margin:20px;
+}
+#header>h1{
+  text-align:center;
+  font-size:3rem;
+}
+#header>p{
+  text-align:center;
+  font-size:1.5rem;
+  font-style:italic;
+}
+.container{
+  width:100vw;
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  padding:40px 20px;
+}
+.card{
+  display:flex;
+  flex-direction:column;
+  width:400px;
+  margin-bottom:60px;
+}
+.card>div{
+  box-shadow:0 15px 20px 0 rgba(0,0,0,0.5);
+}
+.card-image{
+  width:400px;
+  height:250px;
+}
+.card-image>img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:bottom;
+}
+.card-text{
+  margin:-30px auto;
+  margin-bottom:-50px;
+  height:300px;
+  width:300px;
+  background-color:#1D1C20;
+  color:#fff;
+  padding:20px;
+}
+.card-meal-type{
+  font-style:italic;
+}
+.card-title{
+  font-size:2.2rem;
+  margin-bottom:20px;
+  margin-top:5px;
+}
+.card-body{
+  font-size:1.25rem;
+}
+.card-price{
+  width:100px;
+  height:100px;
+  background-color:#970C0A;
+  color:#fff;
+  margin-left:auto;
+  font-size:3.5rem;
+  text-decoration: none;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+</style>
+</head>
+<body>
+  <button class="open-btn" onclick="toggleNavbar()">
+    <span class="open-btn-icon">☰</span>
+  </button>
+  <div class="navbar" id="navbar">
+    <a href="#" onclick="closeNavbar();"><span class="service-icon">◁</span> Back</a>
+    <img src="../images/hyderabad.jpg" alt="Navbar Image" class="top-image">
+    <a href="navbar.html"><span class="service-icon">🏠</span> Home</a>
+    <div class="separator"></div>
+    <a href="abouthyd.html"><span class="service-icon">ℹ️</span> About the City</a>
+    <div class="separator"></div>
+    <a href="touristattractionshyd.html"><span class="service-icon">🏞️</span> Tourist Attractions</a>
+    <div class="separator"></div>
+    <a href="healthcareserviceshyd.html"><span class="service-icon">🏥</span> HealthCare Services</a>
+    <div class="separator"></div>
+    <a href="hotelshyd.html"><span class="service-icon">🏨</span> Hotels</a>
+    <div class="separator"></div>
+    <a href="bookings.html"><span class="service-icon">🔑</span> Booking</a>
+    <div class="separator"></div>
+    <a href="transportserviceshyd.html"><span class="service-icon">🚆🚌</span> Transportation Services</a>
+    <div class="separator"></div>
+    <a href="collegeshyd.html"><span class="service-icon">🏛️🏫</span> Educational Institutions</a>
+    <div class="separator"></div>
+    <a href="jobshyd.html"><span class="service-icon">💼</span>Companies/Job Findings</a>
+    <div class="separator"></div>
+    <a href="shoppingmallshyd.html"><span class="service-icon">🛍️</span> Shopping Malls</a>
+    <div class="separator"></div>
+    <a href="restaurents.html"><span class="service-icon">🏨</span> Restaurents</a>
+    <div class="separator"></div>
+    <a href="conatcthyd.html"><span class="service-icon">📞</span> Contact</a>
+  </div>
+
+  <div id="header">
+    <h1>Hyderabad Flavours</h1>
+    <p>Where Every Dish Tells a Tale of Hyderabad's Rich Heritage</p>
+      </div>
+    <div class="container">
+    <div class="card">
+      <div class="card-image">
+        <img src="https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2669%2Ftrend20200113060319.jpg">
+      </div>
+      <div class="card-text">
+        <p class="card-meal-type">Breakfast/Eggs</p>
+        <h2 class="card-title">Jewel Of Nizam</h2>
+        <p class="card-body">Eggs Benedict with hollandaise sauce, crispy bacon and an assortment of garden herbs.</p>
+      </div>
+      <div><a href="https://goo.gl/maps/JyN7pZzKZVKdYtPx7" class="card-price">➤</a></div>
+    </div>
+      <div class="card">
+      <div class="card-image">
+        <img src="https://c.ndtvimg.com/2022-04/fq5cs53_biryani-doubletree-by-hilton_625x300_12_April_22.jpg">
+      </div>
+      <div class="card-text">
+        <p class="card-meal-type">Lunch/Meat</p>
+        <h2 class="card-title"> Paradise Biriyani, Hyderabad</h2>
+        <p class="card-body">A beef burger with wholewheat patty, side of gluten free fries</p>
+      </div>
+      <div><a href="https://goo.gl/maps/v3UNJZeAqhn7fPNB7" class="card-price">➤</a></div>
+    </div>
+      <div class="card">
+      <div class="card-image">
+        <img src="https://www.fabhotels.com/blog/wp-content/uploads/2018/08/Resize_290818_Almond-House.jpg">
+      </div>
+      <div class="card-text">
+        <p class="card-meal-type">Almond & Ice Creams</p>
+        <h2 class="card-title">Almond House</h2>
+        <p class="card-body">The traditional French soup made with onions and beef with a dollop of garlic and saffaron mayonise.</p>
+      </div>
+      <div><a href="https://goo.gl/maps/P2jMPcRmFYDqp7V8A" class="card-price">➤</a></div>
+    </div>
+      <div class="card">
+      <div class="card-image">
+        <img src="https://www.fabhotels.com/blog/wp-content/uploads/2018/08/resize_290818_Tatva_New.jpg">
+      </div>
+      <div class="card-text">
+        <p class="card-meal-type">Appetizers/Meat</p>
+        <h2 class="card-title">Tatva,Jubilee Hills</h2>
+        <p class="card-body">Chickens doused in wine, mushrooms, pork, onions and garlic.</p>
+      </div>
+      <div><a href="https://goo.gl/maps/Mzq4FX5LBWV4NfR18" class="card-price">➤</a></div>
+    </div>
+      <div class="card">
+      <div class="card-image">
+        <img src="https://www.fabhotels.com/blog/wp-content/uploads/2018/08/Resize_290818_ABs.jpg">
+      </div>
+      <div class="card-text">
+        <p class="card-meal-type">Appetizers/Meat</p>
+        <h2 class="card-title">AB’s Absolute Barbecues</h2>
+        <p class="card-body">Chickens doused in wine, mushrooms, pork, onions and garlic.</p>
+      </div>
+      <div><a href="https://goo.gl/maps/JMnZ81jzy3zmTA458" class="card-price">➤</a></div>
+
+    </div>
+      <div class="card">
+      <div class="card-image">
+        <img src="https://www.fabhotels.com/blog/wp-content/uploads/2018/08/Resize_290818_Over-the-Moon-Company.jpg">
+      </div>
+      <div class="card-text">
+        <p class="card-meal-type">Appetizers/Meat</p>
+        <h2 class="card-title">Over The Moon,Gachibowli</h2>
+        <p class="card-body">Chickens doused in wine, mushrooms, pork, onions and garlic.</p>
+      </div>
+      <div><a href="https://goo.gl/maps/gv9Y8Gwcd65PjxDw9" class="card-price">➤</a></div>
+    </div>
+    
+    </div>
+
+  
+  
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const openBtn = document.querySelector('.open-btn');
+
+    function toggleNavbar() {
+      if (navbar.style.left === '-300px' || navbar.style.left === '') {
+        navbar.style.left = '0';
+        openBtn.classList.add('active');
+      } else {
+        navbar.style.left = '-300px';
+        openBtn.classList.remove('active');
+      }
+    }
+
+    function closeNavbar() {
+      navbar.style.left = '-300px';
+      openBtn.classList.remove('active');
+    }
+
+    const navLinks = document.querySelectorAll('.navbar a');
+    for (const link of navLinks) {
+      link.addEventListener('click', closeNavbar);
+    }
+  </script>
+</body>
+</html>

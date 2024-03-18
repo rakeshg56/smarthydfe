@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Quiz App</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #quiz {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 500px;
+            position: relative;
+        }
+
+        #result {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 96%;
+            background-color: #ff5050; /* Red background color */
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px; /* Add margin at the bottom to separate from questions */
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz">
+        <!-- Display the result at the top -->
+        <div id="result"></div>
+
+        <div class="question" id="question1">
+            <p>1. What is the capital of Japan?</p>
+            <label><input type="radio" name="q1" value="Tokyo"> Tokyo</label>
+            <label><input type="radio" name="q1" value="Seoul"> Seoul</label>
+            <label><input type="radio" name="q1" value="Beijing"> Beijing</label>
+        </div>
+  <div class="question" id="question2">
+            <p>2. What is the largest mammal on Earth?</p>
+            <label><input type="radio" name="q2" value="Elephant"> Elephant</label>
+            <label><input type="radio" name="q2" value="Blue Whale"> Blue Whale</label>
+            <label><input type="radio" name="q2" value="Giraffe"> Giraffe</label>
+        </div>
+
+        <div class="question" id="question3">
+            <p>3. Who wrote 'Romeo and Juliet'?</p>
+            <label><input type="radio" name="q3" value="William Shakespeare"> William Shakespeare</label>
+            <label><input type="radio" name="q3" value="Jane Austen"> Jane Austen</label>
+            <label><input type="radio" name="q3" value="Charles Dickens"> Charles Dickens</label>
+        </div>
+
+        <div class="question" id="question4">
+            <p>4. Which planet is known as the Red Planet?</p>
+            <label><input type="radio" name="q4" value="Mars"> Mars</label>
+            <label><input type="radio" name="q4" value="Venus"> Venus</label>
+            <label><input type="radio" name="q4" value="Jupiter"> Jupiter</label>
+        </div>
+
+        <div class="question" id="question5">
+            <p>5. What is the currency of Brazil?</p>
+            <label><input type="radio" name="q5" value="Peso"> Peso</label>
+            <label><input type="radio" name="q5" value="Real"> Real</label>
+            <label><input type="radio" name="q5" value="Dollar"> Dollar</label>
+        </div>
+
+        <div class="question" id="question6">
+            <p>6. In which year did the Titanic sink?</p>
+            <label><input type="radio" name="q6" value="1912"> 1912</label>
+            <label><input type="radio" name="q6" value="1920"> 1920</label>
+            <label><input type="radio" name="q6" value="1905"> 1905</label>
+        </div>
+        <!-- Add more questions as needed -->
+
+        <button onclick="submitQuiz()">Submit</button>
+    </div>
+
+    <script>
+        // script.js
+        const totalQuestions = 6;
+
+        function submitQuiz() {
+            // Logic to calculate the score
+            var score = 0;
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                var selectedAnswer = getSelectedAnswer('q' + i);
+                var correctAnswer = getCorrectAnswer(i);
+
+                if (selectedAnswer && selectedAnswer === correctAnswer) {
+                    score++;
+                }
+            }
+
+            // Display the result at the top
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = "Your score: " + score + " out of " + totalQuestions;
+
+            // Certificate generation
+            if (score >= 4) {
+                resultDiv.innerHTML += "<br>Congratulations! You've passed. <a href='cer.html' id='downloadCertificate'>View Certificate</a>";
+            }
+        }
+
+        function getSelectedAnswer(questionId) {
+            var selectedOption = document.querySelector('input[name="' + questionId + '"]:checked');
+            return selectedOption ? selectedOption.value : null;
+        }
+
+        function getCorrectAnswer(questionNumber) {
+            // Placeholder for correct answers, replace with actual correct answers
+            var correctAnswers = {
+                1: "Tokyo",
+               2: "Blue Whale",
+        3: "William Shakespeare",
+        4: "Mars",
+        5: "Real",
+        6: "1912"
+            };
+
+            return correctAnswers[questionNumber];
+        }
+    </script>
+</body>
+</html>

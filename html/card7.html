@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #c99595;
+  }
+
+  .navbar {
+    height: 100vh;
+    width: 300px;
+    position: fixed;
+    left: -300px;
+    top: 0;
+    background-color: #222;
+    color: #fff;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    font-size: 16px;
+    z-index: 1;
+  }
+  
+
+
+  .navbar img.top-image {
+    display: block;
+    width: 100%;
+    height: 25%;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s, background-color 0.3s;
+  }
+
+  .navbar a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+
+  .navbar a:hover {
+    color: #ffcc00;
+    background-color: #444;
+  }
+
+  .navbar a:hover::before {
+    background-color: #ffcc00;
+  }
+
+  .separator {
+    margin: 10px 0;
+    border-top: 1px solid #555;
+  }
+  .service-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+
+  .open-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1;
+  }
+
+  .open-btn-icon {
+    font-size: 24px;
+  }
+
+  .open-btn.active {
+    display: none;
+  }
+
+  .open-btn:hover {
+    background-color: #444;
+  }
+
+  .open-btn:focus {
+    outline: none;
+  }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: #f2f2f2;
+  text-align: center;
+}
+.container{
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card{
+  height: 465px;
+  max-width: 450px;
+  margin: 0 20px;
+  background: white;
+  transition: 0.4s;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+.card:hover{
+  height: 470px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.card .img{
+  height: 270px;
+  width: 100%;
+}
+.card .img img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.card .top-text{
+  padding: 15px;
+}
+.card .top-text .name{
+  font-size: 25px;
+  font-weight: 600;
+  color: #202020;
+}
+.card .top-text p{
+  font-size: 20px;
+  font-weight: 600;
+  color: #e74c3c;
+  line-height: 20px;
+}
+.card .bottom-text{
+  padding: 0 20px 10px 20px;
+  margin-top: 5px;
+  background: white;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.1s;
+}
+.card:hover .bottom-text{
+  opacity: 1;
+  visibility: visible;
+}
+.card .bottom-text .text{
+  text-align: justify;
+}
+.card .bottom-text .btn{
+  margin: 10px 0;
+  text-align: left;
+}
+.card .bottom-text .btn a{
+  text-decoration: none;
+  background: #e74c3c;
+  color: #f2f2f2;
+  padding: 5px 8px;
+  border-radius: 3px;
+  display: inline-flex;
+  transition: 0.2s;
+}
+.card .bottom-text .btn a:hover{
+  transform: scale(0.9);
+}
+@media screen and (max-width: 978px) {
+  .container{
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .card{
+    max-width: 700px;
+    margin: 20px 0;
+  }
+}
+
+      </style>
+   </head>
+   <body>
+      <button class="open-btn" onclick="toggleNavbar()">
+         <span class="open-btn-icon">☰</span>
+       </button>
+       
+        <div>
+         <p> <span class="spacer"></span> </p>
+        </div>
+      <div class="container">
+         <div class="card">
+            <div class="img">
+               <img src="../images/In_Orbit_Mall.jpg">
+            </div>
+            <div class="top-text">
+               <div class="name">
+                  Inorbit Mall
+               </div>
+              
+            </div>
+            <div class="bottom-text">
+               <div class="text">
+                  Inorbit Mall Cyberabad is Hyderabad's premier shopping centre.
+               </div>
+               <div class="btn">
+                  <a href="https://www.inorbit.in/hyderabad/">Shop Now</a>
+               </div>
+            </div>
+         </div>
+         <div class="card">
+            <div class="img">
+               <img src="../images/Forum-Sujana-Hyderabad.jpg">
+            </div>
+            <div class="top-text">
+               <div class="name">
+                  Forum Mall
+               </div>
+              
+            </div>
+            <div class="bottom-text">
+               <div class="text">
+                  Forum Sujana Mall Kukatpally, Hyderabad Forum Sujana Mall in Kukatpally. 
+               </div>
+               <div class="btn">
+                  <a href="https://forummalls.in/">Shop Now</a>
+               </div>
+            </div>
+         </div>
+         <div class="card">
+            <div class="img">
+               <img src="../images/GVK-One_Hyderabad.png">
+            </div>
+            <div class="top-text">
+               <div class="name">
+                  GVK One Mall
+               </div>
+               
+            </div>
+            <div class="bottom-text">
+               <div class="text">
+                  GVK One Mall is the most exclusive shopping mall and entertainment center.
+               </div>
+               <div class="btn">
+                  <a href="https://maps.app.goo.gl/q4zEeWGqKzo2NNYQA">Shop Now</a>
+               </div>
+            </div>
+         </div>
+         
+         </div>
+         
+         </div>
+         
+         </div>
+      </div>
+      <div class="navbar" id="navbar">
+         <a href="#" onclick="closeNavbar();"><span class="service-icon">◁</span> Back</a>
+         <img src="../images/hyderabadimage2.jpg" alt="Navbar Image" class="top-image">
+         <a href="navbar.html"><span class="service-icon">🏠</span> Home</a>
+         <div class="separator"></div>
+         <a href="abouthyd.html"><span class="service-icon">ℹ️</span> About the City</a>
+         <div class="separator"></div>
+         <a href="touristattractionshyd.html"><span class="service-icon">🏞️</span> Tourist Attractions</a>
+         <div class="separator"></div>
+         <a href="healthcareserviceshyd.html"><span class="service-icon">🏥</span> HealthCare Services</a>
+         <div class="separator"></div>
+         <a href="hotelshyd.html"><span class="service-icon">🏨</span> Hotels</a>
+         <div class="separator"></div>
+         <a href="bookings.html"><span class="service-icon">🔑</span> Booking</a>
+         <div class="separator"></div>
+         <a href="transportserviceshyd.html"><span class="service-icon">🚆🚌</span> Transportation Services</a>
+         <div class="separator"></div>
+       <a href="collegeshyd.html"><span class="service-icon">🏛️🏫</span> Educational Institutions</a>
+         <div class="separator"></div>
+         <a href="jobshyd.html"><span class="service-icon">💼</span>Companies/Job Findings</a>
+         <div class="separator"></div>
+         <a href="shoppingmallshyd.html"><span class="service-icon">🛍️</span> Shopping Malls</a>
+         <div class="separator"></div>
+         <a href="restaurents.html"><span class="service-icon">🏨</span> Restaurents</a>
+         <div class="separator"></div>
+         <a href="conatcthyd.html"><span class="service-icon">📞</span> Contact</a>
+       </div>
+       
+       <script>
+         const navbar = document.getElementById('navbar');
+         const openBtn = document.querySelector('.open-btn');
+     
+         function toggleNavbar() {
+           if (navbar.style.left === '-300px' || navbar.style.left === '') {
+             navbar.style.left = '0';
+             openBtn.classList.add('active');
+           } else {
+             navbar.style.left = '-300px';
+             openBtn.classList.remove('active');
+           }
+         }
+     
+         function closeNavbar() {
+           navbar.style.left = '-300px';
+           openBtn.classList.remove('active');
+         }
+     
+         const navLinks = document.querySelectorAll('.navbar a');
+         for (const link of navLinks) {
+           link.addEventListener('click', closeNavbar);
+         }
+       </script>
+   </body>
+</html>

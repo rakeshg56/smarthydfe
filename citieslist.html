@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+  <title>Hello, World!</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --card-height: 500px;
+      --card-width: calc(var(--card-height) / 1.5);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: white;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .card {
+  max-width: var(--card-width);
+  width: 100%;
+  height: var(--card-height);
+  position: relative;
+  overflow: hidden;
+  margin: 100px auto; /* Added margin-bottom to move the card down */
+}
+
+.wrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 100%; /* Move the wrapper to the bottom of the card */
+  left: 0;
+  z-index: -1;
+  overflow: hidden; /* Added overflow property */
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+    .card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+
+    .wrapper {
+      transition: all 0.5s;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .wrapper::before,
+      .wrapper::after {
+        content: "";
+        opacity: 0;
+        width: 100%;
+        height: 200px;
+        transition: all 0.5s;
+        position: absolute;
+        left: 0;
+      }
+      .card:hover .wrapper::before,
+      .wrapper::after {
+        opacity: 1;
+      }
+  
+      .card:hover .wrapper::after {
+        height: 100px;
+      }
+  
+      .title {
+        width: 100%;
+        transition: transform 0.5s;
+      }
+  
+      .card:hover .title {
+        transform: translate3d(0%, -50px, 100px);
+      }
+  
+      .character {
+        max-width: 100%; /* Adjust the percentage as needed */
+  max-height: 140%; /* Adjust the percentage as needed */
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+.character.reduce-height {
+  max-height: 70%; /* Adjust the percentage as needed */
+}
+
+
+.card:hover .character {
+  opacity: 1;
+  transform: translate3d(0, 30%, 100px); /* Adjust the translateY value to move the image downwards */
+}
+
+  
+      .overlay-text,
+      .overlay-texte {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: white;
+        padding: 10px;
+        font-size: 24px;
+        text-align: left;
+        opacity: 1;
+        transition: opacity 0.3s;
+        font-family: "Pacifico", cursive;
+      }
+  
+      .overlay-texte {
+        left: 20px;
+        font-size: 26px;
+      }
+
+    @media (max-width: 768px) {
+      .card {
+        max-width: 90%;
+      }
+
+      .card-container {
+        flex-direction: column;
+      }
+
+      .overlay-text,
+      .overlay-texte {
+        font-size: 16px;
+      }
+
+      .card .wrapper {
+        padding: 0 8px;
+      }
+
+      .card:hover .wrapper {
+        transform: none;
+      }
+
+      .card:hover .title,
+      .card:hover .character {
+        transform: none;
+      }
+      
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="card-container">
+    <a href="navbarofhyderabad.html" class="card">
+      <div class="wrapper">
+        <div class="overlay-text">ＨＹＤＥＲＡＢＡＤ</div>
+        <img src="https://wallpapers.com/images/high/hyderabad-street-walk-1tnzou2q9yqln3bb.webp" class="cover-image" />
+      </div>
+     
+      <img src="../images/pngwing.com.png" class="character" />
+    </a>
+
+    <a href="navbarofmumbai.html" class="card">
+      <div class="wrapper">
+        <div class="overlay-texte">ＭＵＭＢＡＩ</div>
+        <img src="https://images.unsplash.com/photo-1566552881560-0be862a7c445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bXVtYmFpfGVufDB8fDB8fHww&w=1000&q=80" class="cover-image" />
+      </div>
+      <img src="../images/mmh.png" class="character" />
+    </a>
+
+    <a href="navbarofchennai.html" class="card">
+      <div class="wrapper">
+        <div class="overlay-texte">ＣＨＥＮＮＡＩ</div>
+        <img src="../images/temple.jpg" class="cover-image" />
+      </div>
+      <img src="../images/pngwing.com (5).png" class="character reduce-height" />
+    </a>
+  </div>
+</body>
+
+</html>

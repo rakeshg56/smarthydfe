@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Tour with Map</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script>
+        const map = L.map('map').setView([0, 0], 2);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Array of spot coordinates and panorama images
+        const spots = [
+            { coordinates: [0, 0], panorama: "https://scion-social.com/wp-content/uploads/2016/07/360-panorama-matador-seo.jpg" },
+            // Add more spots as needed
+        ];
+
+        spots.forEach(spot => {
+            const marker = L.marker(spot.coordinates).addTo(map);
+            marker.on('click', function() {
+                showPanorama(spot.panorama);
+            });
+        });
+
+        function showPanorama(panoramaImage) {
+            const panoramaContainer = document.createElement('div');
+            panoramaContainer.id = 'panorama';
+            document.body.appendChild(panoramaContainer);
+
+            const viewer = pannellum.viewer('panorama', {
+                "type": "equirectangular",
+                "panorama": panoramaImage,
+                "autoLoad": true
+            });
+
+            viewer.on('close', function() {
+                document.body.removeChild(panoramaContainer);
+            });
+        }
+    </script>
+</body>
+</html>

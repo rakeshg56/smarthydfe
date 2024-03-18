@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+       body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #c99595;
+  }
+
+  .navbar {
+    height: 100vh;
+    width: 300px;
+    position: fixed;
+    left: -300px;
+    top: 0;
+    background-color: #222;
+    color: #fff;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    font-size: 16px;
+    z-index: 1;
+  }
+  
+
+
+  .navbar img.top-image {
+    display: block;
+    width: 100%;
+    height: 25%;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s, background-color 0.3s;
+  }
+
+  .navbar a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+
+  .navbar a:hover {
+    color: #ffcc00;
+    background-color: #444;
+  }
+
+  .navbar a:hover::before {
+    background-color: #ffcc00;
+  }
+
+  .separator {
+    margin: 10px 0;
+    border-top: 1px solid #555;
+  }
+  .service-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+
+  .open-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1;
+  }
+
+  .open-btn-icon {
+    font-size: 24px;
+  }
+
+  .open-btn.active {
+    display: none;
+  }
+
+  .open-btn:hover {
+    background-color: #444;
+  }
+
+  .open-btn:focus {
+    outline: none;
+  }
+        * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color:rgb(255, 255, 255);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
+  grid-gap: 40px;
+  padding: 60px 0;
+}
+
+.text--medium {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.cards {
+  grid-column: 2 / span 12;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(auto, 60px));
+  grid-gap: 40px;
+}
+
+.card {
+  grid-column-end: span 4;
+  display: flex;
+  flex-direction: column;
+  background-color: #39393b;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+}
+
+.card__image-container {
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__image-container img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card__content {
+  padding: 20px;
+}
+
+.card__title {
+  margin-bottom: 20px;
+}
+
+.card__info {
+  display: flex;
+  align-self: end;
+  align-items: center;
+}
+.card__price.text--medium {
+    text-decoration: none;
+  }
+.card__price {
+  margin-left: auto;
+  padding: 5px 20px;
+  background-color: #303032;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .card {
+    grid-column-end: span 6;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  main {
+    grid-gap: 20px;
+  }
+  .card {
+    grid-column-end: span 12;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  main {
+    grid-template-columns: 10px repeat(6, 1fr) 10px;
+    grid-gap: 10px;
+  }
+  .cards {
+    grid-column: 2 / span 6;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+  }
+  .card {
+    grid-column-end: span 6;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <button class="open-btn" onclick="toggleNavbar()">
+      <span class="open-btn-icon">☰</span>
+    </button>
+    
+     <div>
+      <p> <span class="spacer"></span> </p>
+     </div>
+    <main>
+      <section class="cards">
+        <div class="card">
+          <div class="card__image-container">
+            <img
+              src="../images/vivantahotelhyd.jpg"
+            />
+          </div>
+          <div class="card__content">
+            <p class="card__title text--medium">
+             <strong> Vivanta By Taj</strong><br>
+              A unique mix of contemporary style and traditional values, Vivanta Hyderabad Begumpet .<br>
+              <strong>Phone: +91 40-67252626<br></strong>
+              <strong> vivanta.begumpet@tajhotels.com </strong>
+            </p>
+            <div class="card__info">
+              
+              <a href="https://www.makemytrip.com/hotels/vivanta_hyderabad_begumpet-details-hyderabad.html" class="card__price text--medium" style="text-decoration: none;">→</a>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image-container">
+            <img
+              src="../images/tajdeccanhotelhyd.jpg"
+            />
+          </div>
+          <div class="card__content">
+            <p class="card__title text--medium">
+              <strong>Taj Deccan</strong> <br>
+                Located in the posh neighbourhood of Banjara Hills, Taj Deccan Hyderabad 
+                <br>
+                <strong>Phone: +91 40-67252626<br></strong>
+                <strong> deccan@hotels.com </strong>
+            </p>
+            <div class="card__info">
+              <a href="https://www.makemytrip.com/hotels/taj_deccan_hyderabad-details-hyderabad.html" class="card__price text--medium" style="text-decoration: none;">→</a>            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image-container">
+            <img
+              src="../images/mercurehotelhyd.jpg"
+            />
+          </div>
+          <div class="card__content">
+            <p class="card__title text--medium">
+              <strong>Mercure Hotel</strong> <br>
+              Well-appointed rooms, a great dining spot, a well-equipped fitness centre and bespoke experiences <br>
+        <strong> Phone: +91 40-67252626<br></strong>
+        <strong> mercury@hotels.com </strong>
+            </p>
+            <div class="card__info">
+              <a href="https://www.makemytrip.com/hotels/mercure_hyderabad_kcp_an_accorhotels_brand-details-hyderabad.html" class="card__price text--medium" style="text-decoration: none;">→</a>            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image-container">
+            <img
+              src="../images/lemontreehotelhyd.jpg"
+            />
+          </div>
+          <div class="card__content">
+            <p class="card__title text--medium">
+              <strong>Lemon Tree</strong> <br>
+              Situated in the corporate hub of Hyderbad, Lemon Tree Premier City Enjoy invites you to experience a lavish stay with modern amenities<br>
+        <strong> Phone: +91 40-67252626<br></strong>
+        <strong> lemontree@hotels.com </strong>
+            </p>
+            <div class="card__info">
+              <a href="https://www.makemytrip.com/hotels/lemon_tree_premier_hitec_city_hyderabad-details-hyderabad.html" class="card__price text--medium" style="text-decoration: none;">→</a>            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image-container">
+            <img
+              src="../images/deccanseraihotelhyd.jpg"
+            />
+          </div>
+          <div class="card__content">
+            <p class="card__title text--medium">
+              <strong>Deccan Serai Hotel</strong> <br>
+              Experience unparalleled luxury at this premium property offering stylish rooms, an incredible restaurant.<br>
+        <strong>Phone: +91 40-67252626<br></strong>
+        <strong>deccanserai@hotels.com </strong>
+            </p>
+            <div class="card__info">
+              <a href="https://www.makemytrip.com/hotels/hotel_deccan_serai-details-hyderabad.html" class="card__price text--medium" style="text-decoration: none;">→</a>            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image-container">
+            <img
+              src="../images/mariotthotelhyd.jpg"
+            />
+          </div>
+          <div class="card__content">
+            <p class="card__title text--medium">
+              <strong>Mariott Hotel</strong> <br>
+              This elegant hotel offers a delightful stay backed by unmatched hospitality, well-appointed rooms.<br>
+              <strong>Phone: +91 40-67252626<br></strong>
+              <strong>mariotthotel@hotels.com </strong>
+            </p>
+            <div class="card__info">
+              <a href="https://www.makemytrip.com/hotels/marigold_by_green_park-details-hyderabad.html" class="card__price text--medium" style="text-decoration: none;">→</a>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </section>
+   
+    <script>
+      !(function() {
+        var analytics = (window.analytics = window.analytics || []);
+        if (!analytics.initialize)
+          if (analytics.invoked)
+            window.console &&
+              console.error &&
+              console.error("Segment snippet included twice.");
+          else {
+            analytics.invoked = !0;
+            analytics.methods = [
+              "trackSubmit",
+              "trackClick",
+              "trackLink",
+              "trackForm",
+              "pageview",
+              "identify",
+              "reset",
+              "group",
+              "track",
+              "ready",
+              "alias",
+              "debug",
+              "page",
+              "once",
+              "off",
+              "on"
+            ];
+            analytics.factory = function(t) {
+              return function() {
+                var e = Array.prototype.slice.call(arguments);
+                e.unshift(t);
+                analytics.push(e);
+                return analytics;
+              };
+            };
+            for (var t = 0; t < analytics.methods.length; t++) {
+              var e = analytics.methods[t];
+              analytics[e] = analytics.factory(e);
+            }
+            analytics.load = function(t, e) {
+              var n = document.createElement("script");
+              n.type = "text/javascript";
+              n.async = !0;
+              n.src =
+                "https://cdn.segment.com/analytics.js/v1/" +
+                t +
+                "/analytics.min.js";
+              var a = document.getElementsByTagName("script")[0];
+              a.parentNode.insertBefore(n, a);
+              analytics._loadOptions = e;
+            };
+            analytics.SNIPPET_VERSION = "4.1.0";
+            analytics.load("FQ5NJmRc6LrFKVAC6ofHlSU7WIwGAdj5");
+            analytics.page();
+          }
+      })();
+    </script>
+    <div class="navbar" id="navbar">
+      <a href="#" onclick="closeNavbar();"><span class="service-icon">◁</span> Back</a>
+      <img src="../images/hyderabadimage2.jpg" alt="Navbar Image" class="top-image">
+      <a href="navbar.html"><span class="service-icon">🏠</span> Home</a>
+      <div class="separator"></div>
+      <a href="abouthyd.html"><span class="service-icon">ℹ️</span> About the City</a>
+      <div class="separator"></div>
+      <a href="touristattractionshyd.html"><span class="service-icon">🏞️</span> Tourist Attractions</a>
+      <div class="separator"></div>
+      <a href="healthcareserviceshyd.html"><span class="service-icon">🏥</span> HealthCare Services</a>
+      <div class="separator"></div>
+      <a href="hotelshyd.html"><span class="service-icon">🏨</span> Hotels</a>
+      <div class="separator"></div>
+      <a href="bookings.html"><span class="service-icon">🔑</span> Booking</a>
+      <div class="separator"></div>
+      <a href="transportserviceshyd.html"><span class="service-icon">🚆🚌</span> Transportation Services</a>
+      <div class="separator"></div>
+    <a href="collegeshyd.html"><span class="service-icon">🏛️🏫</span> Educational Institutions</a>
+      <div class="separator"></div>
+      <a href="jobshyd.html"><span class="service-icon">💼</span>Companies/Job Findings</a>
+      <div class="separator"></div>
+      <a href="shoppingmallshyd.html"><span class="service-icon">🛍️</span> Shopping Malls</a>
+      <div class="separator"></div>
+      <a href="restaurents.html"><span class="service-icon">🏨</span> Restaurents</a>
+      <div class="separator"></div>
+      <a href="conatcthyd.html"><span class="service-icon">📞</span> Contact</a>
+    </div>
+    
+    <script>
+      const navbar = document.getElementById('navbar');
+      const openBtn = document.querySelector('.open-btn');
+  
+      function toggleNavbar() {
+        if (navbar.style.left === '-300px' || navbar.style.left === '') {
+          navbar.style.left = '0';
+          openBtn.classList.add('active');
+        } else {
+          navbar.style.left = '-300px';
+          openBtn.classList.remove('active');
+        }
+      }
+  
+      function closeNavbar() {
+        navbar.style.left = '-300px';
+        openBtn.classList.remove('active');
+      }
+  
+      const navLinks = document.querySelectorAll('.navbar a');
+      for (const link of navLinks) {
+        link.addEventListener('click', closeNavbar);
+      }
+    </script>
+    </main>
+  </body>
+</html>

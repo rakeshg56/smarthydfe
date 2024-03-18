@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+		 body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #c99595;
+  }
+
+  .navbar {
+    height: 100vh;
+    width: 300px;
+    position: fixed;
+    left: -300px;
+    top: 0;
+    background-color: #222;
+    color: #fff;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    font-size: 16px;
+    z-index: 1;
+  }
+  
+
+
+  .navbar img.top-image {
+    display: block;
+    width: 100%;
+    height: 25%;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s, background-color 0.3s;
+  }
+
+  .navbar a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+
+  .navbar a:hover {
+    color: #ffcc00;
+    background-color: #444;
+  }
+
+  .navbar a:hover::before {
+    background-color: #ffcc00;
+  }
+
+  .separator {
+    margin: 10px 0;
+    border-top: 1px solid #555;
+  }
+  .service-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+
+  .open-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1;
+  }
+
+  .open-btn-icon {
+    font-size: 24px;
+  }
+
+  .open-btn.active {
+    display: none;
+  }
+
+  .open-btn:hover {
+    background-color: #444;
+  }
+
+  .open-btn:focus {
+    outline: none;
+  }
+      * {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	justify-content: center;
+	align-items: center;
+	background: hsla(197, 27%, 80%, 0.33);
+}
+
+img {
+	display: block;
+	width: 100%;
+}
+
+h2 {
+	margin: 0;
+	font-size: 1.4rem;
+}
+
+@media (min-width: 50em) {
+	h2 {
+		font-size: 1.8rem;
+	}
+}
+
+.cta {
+	
+	display: flex;
+	flex-wrap: wrap;
+	background:#F7E7CE;
+	max-width: 50rem;
+	width: 80%;
+	box-shadow: 0.65rem 0.65rem 0 hsl(var(--shadowColor) / 1);
+	border-radius: 0.8rem;
+	overflow: hidden;
+	border: 0.5rem solid;
+}
+
+.cta img {
+	aspect-ratio: 4 / 2;
+	object-fit: cover;
+	flex: 1 1 300px;
+	outline: 0.5rem solid;
+}
+
+.cta__text-column {
+	padding: min(2rem, 5vw) min(2rem, 5vw) min(2.5rem, 5vw);
+	flex: 1 0 50%;
+}
+
+.cta__text-column > * + * {
+	margin: min(1.5rem, 2.5vw) 0 0 0;
+}
+
+.cta a {
+	display: inline-block;
+	color: black;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	background: hsl(55, 100%, 82%);
+	border-radius: 0.6rem;
+	font-weight: 700;
+	border: 0.35rem solid;
+}
+
+.card_text {
+  color: #000000;
+  font-size: 1.300rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;    
+  font-weight: 400;
+}
+    </style>
+  </head>
+  <body>
+	<button class="open-btn" onclick="toggleNavbar()">
+		<span class="open-btn-icon">☰</span>
+	  </button>
+	  
+	   <div>
+		<p> <span class="spacer"></span> </p>
+	   </div>
+<article class="cta">
+	<img src='../images/bits.jpg' alt='Bluetit'>
+	<div class="cta__text-column">
+		<h2>BITS Hyderabad</h2>
+		<p class="card_text">Address : BITS Pilani Hyderabad Campus, Secunderabad, Telangana 500078<br>
+            Phone : 01596 255 348<br>
+            Email : bitshyd@gmail.com</p>
+		<a href="https://maps.app.goo.gl/2S2jXNjRcQy35MmM9">Locate</a>
+	</div>
+</article>
+
+<article class="cta">
+	<img src='../images/cbit.jpg' alt='Small blue-grey yellow-breasted bird'>
+	<div class="cta__text-column">
+		<h2>CBIT Hyderabad</h2>
+		<p class="card_text">Address : Osman Sagar Rd, Kokapet, Gandipet, Hyderabad, Telangana 500075<br>
+            Phone : 084669 97201<br>
+            Email : cbithyd@gmail.com</p>
+		<a href="https://maps.app.goo.gl/MVBCX2HryNnZEfj77">Locate</a>
+	</div>
+</article>
+<article class="cta">
+	<img src='../images/iiit.jpeg' alt='Small blue-grey yellow-breasted bird'>
+	<div class="cta__text-column">
+		<h2>IIIT Hyderabad</h2>
+		<p class="card_text">Address : Professor CR Rao Rd, Gachibowli, Hyderabad, Telangana 500032<br>
+            Phone : 040 6653 1000<br>
+            Email : iiithyd@gmail.com</p>
+		<a href="https://maps.app.goo.gl/5Cd9WhU8zkrSjRzZ8">Locate</a>
+	</div>
+</article>
+<article class="cta">
+	<img src='../images/ou-adv.jpg' alt='Small blue-grey yellow-breasted bird'>
+	<div class="cta__text-column">
+		<h2>Osmania University</h2>
+		<p class="card_text">Address : Amberpet, Hyderabad, Telangana<br>
+            Phone : 040 2709 8043<br>
+            Email : osmania@gmail.com</p>
+		<a href="https://maps.app.goo.gl/JzQMn3eDq4BHMB8p9">Locate</a>
+	</div>
+</article>
+<article class="cta">
+	<img src='../images/ibs.avif' alt='Small blue-grey yellow-breasted bird'>
+	<div class="cta__text-column">
+		<h2>Indian School Of Business</h2>
+		<p class="card_text">Address : Gachibowli, Hyderabad, Telangana 500111<br>
+            Phone : 040 2300 7000<br>
+            Email : isbhyd@gmail.com</p>
+		<a href="https://maps.app.goo.gl/roESRw1JD68DiiiW7">Locate</a>
+	</div>
+</article>
+<article class="cta">
+	<img src='../images/jna.jpeg' alt='Small blue-grey yellow-breasted bird'>
+	<div class="cta__text-column">
+		<h2>J N A F University</h2>
+		<p class="card_text">Address: Masab Tank,Hyderabad,Telangana,500028<br>
+            Phone: 040 2334 3616<br>
+            Email : spa_jntu@yahoo.com.</p>
+		<a href="https://maps.app.goo.gl/qcvwLhHKCqKWbunR8">Locate</a>
+	</div>
+</article>
+<div class="navbar" id="navbar">
+	<a href="#" onclick="closeNavbar();"><span class="service-icon">◁</span> Back</a>
+	<img src="../images/hyderabadimage2.jpg" alt="Navbar Image" class="top-image">
+	<a href="navbar.html"><span class="service-icon">🏠</span> Home</a>
+	<div class="separator"></div>
+	<a href="abouthyd.html"><span class="service-icon">ℹ️</span> About the City</a>
+	<div class="separator"></div>
+	<a href="touristattractionshyd.html"><span class="service-icon">🏞️</span> Tourist Attractions</a>
+	<div class="separator"></div>
+	<a href="healthcareserviceshyd.html"><span class="service-icon">🏥</span> HealthCare Services</a>
+	<div class="separator"></div>
+	<a href="hotelshyd.html"><span class="service-icon">🏨</span> Hotels</a>
+	<div class="separator"></div>
+	<a href="bookings.html"><span class="service-icon">🔑</span> Booking</a>
+	<div class="separator"></div>
+	<a href="transportserviceshyd.html"><span class="service-icon">🚆🚌</span> Transportation Services</a>
+	<div class="separator"></div>
+  <a href="collegeshyd.html"><span class="service-icon">🏛️🏫</span> Educational Institutions</a>
+	<div class="separator"></div>
+	<a href="jobshyd.html"><span class="service-icon">💼</span>Companies/Job Findings</a>
+	<div class="separator"></div>
+	<a href="shoppingmallshyd.html"><span class="service-icon">🛍️</span> Shopping Malls</a>
+	<div class="separator"></div>
+	<a href="restaurents.html"><span class="service-icon">🏨</span> Restaurents</a>
+	<div class="separator"></div>
+	<a href="conatcthyd.html"><span class="service-icon">📞</span> Contact</a>
+  </div>
+  
+  <script>
+	const navbar = document.getElementById('navbar');
+	const openBtn = document.querySelector('.open-btn');
+
+	function toggleNavbar() {
+	  if (navbar.style.left === '-300px' || navbar.style.left === '') {
+		navbar.style.left = '0';
+		openBtn.classList.add('active');
+	  } else {
+		navbar.style.left = '-300px';
+		openBtn.classList.remove('active');
+	  }
+	}
+
+	function closeNavbar() {
+	  navbar.style.left = '-300px';
+	  openBtn.classList.remove('active');
+	}
+
+	const navLinks = document.querySelectorAll('.navbar a');
+	for (const link of navLinks) {
+	  link.addEventListener('click', closeNavbar);
+	}
+  </script>
+  </body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+         body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+
+  .navbar {
+    height: 100vh;
+    width: 300px;
+    position: fixed;
+    left: -300px;
+    top: 0;
+    background-color: #222;
+    color: #fff;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    font-size: 16px;
+  }
+
+  .navbar img.top-image {
+    display: block;
+    width: 100%;
+    height: 25%;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s, background-color 0.3s;
+  }
+
+  .navbar a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+
+  .navbar a:hover {
+    color: #ffcc00;
+    background-color: #444;
+  }
+
+  .navbar a:hover::before {
+    background-color: #ffcc00;
+  }
+
+  .separator {
+    margin: 10px 0;
+    border-top: 1px solid #555;
+  }
+  .service-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+
+  .open-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1;
+  }
+
+  .open-btn-icon {
+    font-size: 24px;
+  }
+
+  .open-btn.active {
+    display: none;
+  }
+
+  .open-btn:hover {
+    background-color: #444;
+  }
+
+  .open-btn:focus {
+    outline: none;
+  }
+  .welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 0 20px;
+    text-align: center;
+    margin-bottom: 0px;
+  }
+  .welcome-heading {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  .greetings {
+    font-size: 24px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  .greetings em {
+    font-weight: bold;
+    color: #111112;
+  }
+  .gallery-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .gallery-image {
+    width: 48%;
+    margin-bottom: 10px;
+  }
+  .social-media-section {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  .social-media-icon {
+    font-size: 24px;
+    color: #b90c18;
+    margin: 0 10px;
+    transition: color 0.3s;
+  }
+  .social-media-icon:hover {
+    color: #d3151e;
+  }
+  .social-media-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-register-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .login-register-button:hover {
+    background-color: #444;
+    color: #fff;
+  }
+   /* styles.css */
+   body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+     width: 100%;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .overlay-text {
+    position: absolute;
+    top: 20px; /* Adjust this value to your preferred top position */
+    left: 90px; /* Adjust this value to your preferred left position */
+    color:white; /* Text color in yellow */
+    padding: 10px;
+    font-size: 70px; /* Larger font size for a painted text effect */
+    text-align: left; /* Align the text to the left */
+    opacity: 1; /* Set opacity to 1 for full visibility */
+    transition: opacity 0.3s;
+    font-family: "Pacifico", cursive; /* Use the Pacifico font for painted text effect */
+}
+
+
+.social-media-icons {
+            position: absolute;
+            bottom: -10px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            padding: 20px;
+        }
+
+        .social-icon {
+            font-size: 40px;
+            margin: 0 30px;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icon:hover {
+            color: skyblue; /* Facebook color on hover */
+        }
+
+
+  .slide:hover .overlay-text {
+    opacity: 2;
+  }
+        /* Style for the circular icon */
+         .icon-container {
+      /* Move the icon to the left and set a distance from the right corner */
+      position: absolute;
+      top: 20px; /* Adjust the top position as needed */
+      right: 20px; /* Adjust the right position to create a distance from the right corner */
+    }
+        .icon {
+            width: 40px;
+            height: 40px;
+            background-color: #3498db;
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        /* Style for the dropdown content */
+         .dropdown-content {
+      /* Adjust the width of the dropdown content and move it to the left */
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      width: 160px; /* Adjust the width as needed */
+      box-shadow: 0px -8px 16px 0px rgba(0,0,0,0.2); /* Adjust the box-shadow to move it to the left */
+      z-index: 1;
+      top: 50px; /* Position the dropdown below the icon */
+      right: -20px; /* Create a distance from the icon container */
+    }
+        
+        .show-dropdown {
+            display: block;
+        }
+        /* Style for dropdown items */
+        .dropdown-item {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Circular icon container -->
+    <div class="icon-container">
+        <div class="icon" onclick="toggleDropdown()">&#128100;</div> <!-- Unicode profile human icon -->
+        <!-- Dropdown content -->
+        <div class="dropdown-content" id="dropdown">
+            <a class="dropdown-item" href="profile">Profile</a>
+            <a class="dropdown-item" href="mybookings">My Bookings</a>
+             <a class="dropdown-item" href="quiz">Take Quiz</a>
+            <a class="dropdown-item" href="customerlogout">LogOut</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdown");
+            dropdown.classList.toggle("show-dropdown");
+        }
+    </script>
+</body>
+</html>

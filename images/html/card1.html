@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Educational Institutions</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Font */
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: white;
+}
+
+body {
+  color: #272727;
+  font-family: 'Quicksand', serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+}
+
+.main{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.btn {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards_item {
+  display: flex;
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 150%;
+  width: 100%;
+}
+
+.card_content {
+  padding: 1rem;
+  background: black;
+}
+
+.card_title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.card_text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;    
+  font-weight: 400;
+}
+.made_by{
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 35px;
+  text-align: center;
+}
+    </style>
+  </head>
+  <body>
+      <div class="main">
+  <h1>Educational Institutions in Hyderabad</h1>
+  <ul class="cards">
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="../images/bits.jpg"></div>
+        <div class="card_content">
+          <h2 class="card_title">BITS Hyderabad
+          </h2>
+          <p class="card_text">Address : BITS Pilani Hyderabad Campus, Secunderabad, Telangana 500078<br>
+            Phone : 01596 255 348<br>
+            Email : bitshyd@gmail.com</p>
+          <button class="btn card_btn">Read More</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="../images/cbit.jpg"></div>
+        <div class="card_content">
+          <h2 class="card_title">CBIT Hyderabad
+          </h2>
+          <p class="card_text">Address : Osman Sagar Rd, Kokapet, Gandipet, Hyderabad, Telangana 500075<br>
+            Phone : 084669 97201<br>
+            Email : cbithyd@gmail.com</p>
+          <button class="btn card_btn">Read More</button>
+        </div>
+      </div>
+    </li>
+    
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="../images/iiit.jpeg"></div>
+        <div class="card_content">
+          <h2 class="card_title">IIIT Hyderabad
+          </h2>
+          <p class="card_text">Address : Professor CR Rao Rd, Gachibowli, Hyderabad, Telangana 500032<br>
+            Phone : 040 6653 1000<br>
+            Email : iiithyd@gmail.com</p>
+          <button class="btn card_btn">Read More</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="../images/ou-adv.jpg"></div>
+        <div class="card_content">
+          <h2 class="card_title">Osmania University
+          </h2>
+          <p class="card_text">Address : Amberpet, Hyderabad, Telangana<br>
+            Phone : 040 2709 8043<br>
+            Email : osmania@gmail.com</p>
+          <button class="btn card_btn">Read More</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="../images/ibs.avif"></div>
+        <div class="card_content">
+          <h2 class="card_title">Indian School Of Business
+          </h2>
+          <p class="card_text">Address : Gachibowli, Hyderabad, Telangana 500111<br>
+            Phone : 040 2300 7000<br>
+            Email : isbhyd@gmail.com</p>
+          <button class="btn card_btn">Read More</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="../images/jna.jpeg"></div>
+        <div class="card_content">
+          <h2 class="card_title">J N A F University
+
+          </h2>
+          <p class="card_text">Address: Masab Tank,Hyderabad,Telangana,500028<br>
+            Phone: 040 2334 3616<br>
+            Email : spa_jntu@yahoo.com.</p>
+          <button class="btn card_btn">Read More</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+  </body>
+</html>
